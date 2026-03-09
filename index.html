@@ -40,12 +40,13 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-links a:hover::after { width: 100%; }
   #lang-btn {
-    background: none; border: 1px solid rgba(201,169,110,.4); color: var(--accent);
+    background: var(--navy); border: 1px solid rgba(201,169,110,.4); color: var(--accent);
     padding: .4rem 1rem; font-family: 'DM Sans', sans-serif; font-size: .78rem;
     letter-spacing: .1em; cursor: pointer; transition: all .3s; text-transform: uppercase;
     margin-left: 1.5rem; white-space: nowrap;
+    border-radius: 6px;
   }
-  #lang-btn:hover { background: rgba(201,169,110,.1); }
+  #lang-btn:hover { background: rgba(59,130,246,.1); }
 
   /* HERO */
   #hero { min-height: 100vh; background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
@@ -731,3 +732,4 @@
 </script>
 </body>
 </html>
+
