@@ -18,19 +18,11 @@
     --text-muted: #8892a4;
     --border: rgba(201,169,110,0.2);
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--navy);
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1.2rem 4rem;
@@ -40,245 +32,78 @@
     border-bottom: 1px solid var(--border);
     transition: all .3s;
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; font-weight: 700;
-    color: var(--navy);
-    letter-spacing: .03em;
-  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); letter-spacing: .03em; }
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--navy); font-size: .88rem;
-    font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
-    position: relative; padding-bottom: 3px;
-    transition: color .3s;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: 0; left: 0;
-    width: 0; height: 1.5px; background: var(--accent);
-    transition: width .3s;
-  }
+  .nav-links a { text-decoration: none; color: var(--navy); font-size: .88rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; position: relative; padding-bottom: 3px; transition: color .3s; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--accent); transition: width .3s; }
   .nav-links a:hover { color: var(--accent); }
   .nav-links a:hover::after { width: 100%; }
+  #lang-btn {
+    background: none; border: 1px solid rgba(201,169,110,.4); color: var(--accent);
+    padding: .4rem 1rem; font-family: 'DM Sans', sans-serif; font-size: .78rem;
+    letter-spacing: .1em; cursor: pointer; transition: all .3s; text-transform: uppercase;
+    margin-left: 1.5rem; white-space: nowrap;
+  }
+  #lang-btn:hover { background: rgba(201,169,110,.1); }
 
-  /* ─── HERO ─── */
-  #hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg-pattern {
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 80%, rgba(201,169,110,.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(29,52,97,.6) 0%, transparent 50%);
-  }
-  .hero-grid-overlay {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(201,169,110,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,169,110,.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 4rem 4rem 6rem;
-    position: relative; z-index: 2;
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: .6rem;
-    font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
-    color: var(--accent); font-weight: 500; margin-bottom: 2rem;
-  }
-  .hero-tag::before {
-    content: ''; width: 32px; height: 1px; background: var(--accent);
-  }
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3.2rem, 5vw, 5.5rem);
-    line-height: 1.05; font-weight: 900;
-    color: var(--white);
-    margin-bottom: .6rem;
-  }
-  .hero-name em {
-    font-style: italic; color: var(--accent);
-    display: block;
-  }
-  .hero-role {
-    font-size: 1rem; color: var(--text-muted);
-    font-weight: 300; margin-bottom: 2.5rem;
-    letter-spacing: .04em;
-  }
-  .hero-desc {
-    font-size: .95rem; color: rgba(248,246,241,.65);
-    line-height: 1.8; max-width: 420px; margin-bottom: 3rem;
-  }
-  .hero-cta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
-  .btn-primary {
-    padding: .85rem 2.2rem;
-    background: var(--accent); color: var(--navy);
-    font-size: .85rem; font-weight: 700; letter-spacing: .08em;
-    text-transform: uppercase; text-decoration: none;
-    border: none; cursor: pointer;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-    transition: all .3s;
-  }
+  /* HERO */
+  #hero { min-height: 100vh; background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero-bg-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 80%, rgba(201,169,110,.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(29,52,97,.6) 0%, transparent 50%); }
+  .hero-grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(201,169,110,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,169,110,.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 4rem 6rem; position: relative; z-index: 2; }
+  .hero-tag { display: inline-flex; align-items: center; gap: .6rem; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 2rem; }
+  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 5vw, 5.5rem); line-height: 1.05; font-weight: 900; color: var(--white); margin-bottom: .6rem; }
+  .hero-name em { font-style: italic; color: var(--accent); display: block; }
+  .hero-role { font-size: 1rem; color: var(--text-muted); font-weight: 300; margin-bottom: 2.5rem; letter-spacing: .04em; }
+  .hero-desc { font-size: .95rem; color: rgba(248,246,241,.65); line-height: 1.8; max-width: 420px; margin-bottom: 3rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { padding: .85rem 2.2rem; background: var(--accent); color: var(--navy); font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); transition: all .3s; }
   .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
-  .btn-outline {
-    padding: .85rem 2.2rem;
-    background: transparent; color: var(--white);
-    font-size: .85rem; font-weight: 500; letter-spacing: .08em;
-    text-transform: uppercase; text-decoration: none;
-    border: 1px solid rgba(248,246,241,.25);
-    transition: all .3s; cursor: pointer;
-  }
+  .btn-outline { padding: .85rem 2.2rem; background: transparent; color: var(--white); font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(248,246,241,.25); transition: all .3s; cursor: pointer; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-right {
-    display: flex; align-items: center; justify-content: center;
-    padding: 8rem 5rem 4rem 2rem;
-    position: relative; z-index: 2;
-  }
-  .hero-photo-frame {
-    position: relative; width: 340px; height: 420px;
-  }
-  .hero-photo-border {
-    position: absolute; top: -16px; right: -16px;
-    width: 100%; height: 100%;
-    border: 2px solid var(--accent); opacity: .35;
-  }
-  .hero-photo-bg {
-    position: absolute; bottom: -16px; left: -16px;
-    width: 60%; height: 60%;
-    background: var(--navy-light); opacity: .5;
-  }
-  .hero-photo {
-    width: 100%; height: 100%; object-fit: cover;
-    position: relative; z-index: 1;
-    background: var(--navy-mid);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text-muted); font-size: .8rem; letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-  .photo-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: .8rem; position: relative; z-index: 1;
-  }
-  .photo-placeholder svg { opacity: .3; }
-  .photo-placeholder span { color: var(--text-muted); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
-  .hero-stats {
-    position: absolute; bottom: -30px; left: -30px; z-index: 3;
-    display: flex; gap: .5rem;
-  }
-  .stat-card {
-    background: var(--accent); padding: 1.2rem 1.5rem;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem; font-weight: 900; color: var(--navy);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: .65rem; text-transform: uppercase; letter-spacing: .1em;
-    color: var(--navy); opacity: .7; margin-top: .2rem;
-  }
-  .stat-card.dark {
-    background: var(--navy-light); 
-  }
+  .hero-right { display: flex; align-items: center; justify-content: center; padding: 8rem 5rem 4rem 2rem; position: relative; z-index: 2; }
+  .hero-photo-frame { position: relative; width: 340px; height: 420px; }
+  .hero-photo-border { position: absolute; top: -16px; right: -16px; width: 100%; height: 100%; border: 2px solid var(--accent); opacity: .35; }
+  .hero-photo-bg { position: absolute; bottom: -16px; left: -16px; width: 60%; height: 60%; background: var(--navy-light); opacity: .5; }
+  .hero-stats { position: absolute; bottom: -30px; left: -30px; z-index: 3; display: flex; gap: .5rem; }
+  .stat-card { background: var(--accent); padding: 1.2rem 1.5rem; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--navy); line-height: 1; }
+  .stat-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: var(--navy); opacity: .7; margin-top: .2rem; }
+  .stat-card.dark { background: var(--navy-light); }
   .stat-card.dark .stat-num { color: var(--white); }
   .stat-card.dark .stat-label { color: var(--white); }
 
-  /* ─── SECTION BASE ─── */
+  /* SECTION BASE */
   section { padding: 6rem 6rem; }
-  .section-label {
-    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--accent); font-weight: 600; margin-bottom: 1rem;
-    display: flex; align-items: center; gap: .8rem;
-  }
-  .section-label::after {
-    content: ''; flex: 0 0 40px; height: 1px; background: var(--accent);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3.2rem);
-    font-weight: 900; line-height: 1.1;
-    color: var(--navy); margin-bottom: 1rem;
-  }
+  .section-label { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: .8rem; }
+  .section-label::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 900; line-height: 1.1; color: var(--navy); margin-bottom: 1rem; }
   .section-title em { font-style: italic; color: var(--accent); }
-  .section-sub {
-    font-size: .95rem; color: #556; line-height: 1.7;
-    max-width: 500px; margin-bottom: 3.5rem;
-  }
+  .section-sub { font-size: .95rem; color: #556; line-height: 1.7; max-width: 500px; margin-bottom: 3.5rem; }
 
-  /* ─── ABOUT (dark) ─── */
-  #about {
-    background: var(--navy);
-    color: var(--white);
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center;
-  }
+  /* ABOUT */
+  #about { background: var(--navy); color: var(--white); display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; }
   #about .section-title { color: var(--white); }
   #about .section-sub { color: rgba(248,246,241,.55); }
   .about-text { font-size: .97rem; color: rgba(248,246,241,.7); line-height: 1.85; }
   .about-text p + p { margin-top: 1.2rem; }
   .about-skills { margin-top: 2.5rem; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
-  .skill-tag {
-    padding: .4rem 1rem; border: 1px solid var(--border);
-    font-size: .78rem; letter-spacing: .06em; color: var(--accent-light);
-    text-transform: uppercase;
-  }
-  .about-right {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-    background: var(--border);
-  }
-  .about-stat-box {
-    background: var(--navy-mid);
-    padding: 2.5rem 2rem;
-    text-align: center;
-  }
+  .skill-tag { padding: .4rem 1rem; border: 1px solid var(--border); font-size: .78rem; letter-spacing: .06em; color: var(--accent-light); text-transform: uppercase; }
+  .about-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+  .about-stat-box { background: var(--navy-mid); padding: 2.5rem 2rem; text-align: center; }
   .about-stat-box:hover { background: var(--navy-light); }
-  .about-stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900; color: var(--accent);
-    line-height: 1;
-  }
-  .about-stat-desc {
-    font-size: .8rem; color: var(--text-muted);
-    margin-top: .5rem; line-height: 1.4;
-    text-transform: uppercase; letter-spacing: .05em;
-  }
+  .about-stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; }
+  .about-stat-desc { font-size: .8rem; color: var(--text-muted); margin-top: .5rem; line-height: 1.4; text-transform: uppercase; letter-spacing: .05em; }
 
-  /* ─── PROJECTS ─── */
+  /* PROJECTS */
   #projects { background: var(--cream); }
-  .projects-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 3rem;
-  }
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
-    background: var(--navy);
-  }
-  .project-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    position: relative; overflow: hidden;
-    cursor: pointer;
-    transition: all .4s;
-    group: true;
-  }
-  .project-card::before {
-    content: ''; position: absolute;
-    bottom: 0; left: 0; right: 0; height: 0;
-    background: var(--navy); transition: height .4s;
-    z-index: 0;
-  }
+  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--navy); }
+  .project-card { background: var(--white); padding: 2.5rem 2rem; position: relative; overflow: hidden; cursor: pointer; transition: all .4s; }
+  .project-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 0; background: var(--navy); transition: height .4s; z-index: 0; }
   .project-card:hover::before { height: 100%; }
   .project-card > * { position: relative; z-index: 1; }
   .project-card:hover .project-title { color: var(--white); }
@@ -286,295 +111,112 @@
   .project-card:hover .project-tag { border-color: rgba(201,169,110,.3); color: var(--accent-light); }
   .project-card:hover .project-num { color: rgba(201,169,110,.15); }
   .project-card:hover .project-icon { color: var(--accent); }
-  .project-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem; font-weight: 900; color: rgba(10,22,40,.06);
-    line-height: 1; margin-bottom: 1.5rem;
-    transition: color .4s;
-  }
-  .project-icon {
-    font-size: 1.5rem; margin-bottom: 1rem;
-    transition: color .4s;
-  }
-  .project-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem; font-weight: 700;
-    color: var(--navy); margin-bottom: .8rem;
-    line-height: 1.3; transition: color .4s;
-  }
-  .project-desc {
-    font-size: .87rem; color: #667; line-height: 1.7;
-    margin-bottom: 1.5rem; transition: color .4s;
-  }
+  .project-num { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: rgba(10,22,40,.06); line-height: 1; margin-bottom: 1.5rem; transition: color .4s; }
+  .project-icon { font-size: 1.5rem; margin-bottom: 1rem; transition: color .4s; }
+  .project-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: .8rem; line-height: 1.3; transition: color .4s; }
+  .project-desc { font-size: .87rem; color: #667; line-height: 1.7; margin-bottom: 1.5rem; transition: color .4s; }
   .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-  .project-tag {
-    padding: .25rem .8rem; border: 1px solid rgba(10,22,40,.15);
-    font-size: .72rem; letter-spacing: .05em; color: var(--navy);
-    text-transform: uppercase; transition: all .4s;
-  }
-  .project-card.featured {
-    grid-column: span 2;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-  }
-  .project-featured-img {
-    background: var(--navy-mid);
-    min-height: 200px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text-muted); font-size: .75rem; letter-spacing: .1em;
-    text-transform: uppercase;
-    position: relative; overflow: hidden;
-  }
+  .project-tag { padding: .25rem .8rem; border: 1px solid rgba(10,22,40,.15); font-size: .72rem; letter-spacing: .05em; color: var(--navy); text-transform: uppercase; transition: all .4s; }
+  .project-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .project-featured-img { background: var(--navy-mid); min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; position: relative; overflow: hidden; }
   .project-featured-img img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* ─── LOMBA ─── */
+  /* LOMBA */
   #lomba { background: var(--navy); }
   #lomba .section-title { color: var(--white); }
   #lomba .section-sub { color: rgba(248,246,241,.5); }
   .lomba-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
-  .lomba-item {
-    background: var(--navy-mid);
-    padding: 2rem 2.5rem;
-    display: grid; grid-template-columns: auto 1fr auto;
-    gap: 2rem; align-items: center;
-    transition: background .3s;
-  }
+  .lomba-item { background: var(--navy-mid); padding: 2rem 2.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: center; transition: background .3s; }
   .lomba-item:hover { background: var(--navy-light); }
-  .lomba-medal {
-    width: 52px; height: 52px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem;
-    background: rgba(201,169,110,.1); border: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-  .lomba-info { }
-  .lomba-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 700;
-    color: var(--white); margin-bottom: .3rem;
-  }
+  .lomba-medal { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: rgba(201,169,110,.1); border: 1px solid var(--border); flex-shrink: 0; }
+  .lomba-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: .3rem; }
   .lomba-org { font-size: .85rem; color: var(--text-muted); }
   .lomba-meta { text-align: right; flex-shrink: 0; }
-  .lomba-award {
-    font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
-    color: var(--accent); font-weight: 600;
-  }
+  .lomba-award { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
   .lomba-year { font-size: .8rem; color: var(--text-muted); margin-top: .2rem; }
 
-  /* ─── ORGANISASI ─── */
+  /* ORGANISASI */
   #organisasi { background: var(--white); }
   .org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--navy); margin-top: 3rem; }
-  .org-card {
-    background: var(--white); padding: 2.5rem;
-    display: flex; gap: 1.8rem; align-items: flex-start;
-    transition: background .3s;
-  }
+  .org-card { background: var(--white); padding: 2.5rem; display: flex; gap: 1.8rem; align-items: flex-start; transition: background .3s; }
   .org-card:hover { background: var(--cream); }
-  .org-icon {
-    width: 56px; height: 56px; flex-shrink: 0;
-    background: var(--navy); display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem;
-  }
-  .org-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 700; color: var(--navy);
-    margin-bottom: .3rem;
-  }
-  .org-role {
-    font-size: .8rem; color: var(--accent); font-weight: 600;
-    text-transform: uppercase; letter-spacing: .07em; margin-bottom: .7rem;
-  }
+  .org-icon { width: 56px; height: 56px; flex-shrink: 0; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+  .org-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+  .org-role { font-size: .8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-bottom: .7rem; }
   .org-desc { font-size: .88rem; color: #667; line-height: 1.65; }
-  .org-period {
-    font-size: .78rem; color: var(--text-muted);
-    margin-top: .6rem; letter-spacing: .04em;
-  }
+  .org-period { font-size: .78rem; color: var(--text-muted); margin-top: .6rem; letter-spacing: .04em; }
 
-  /* ─── KEGIATAN ─── */
+  /* KEGIATAN */
   #kegiatan { background: var(--cream); }
   .timeline { position: relative; max-width: 800px; margin: 3rem auto 0; }
-  .timeline::before {
-    content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
-    width: 1px; background: var(--border); transform: translateX(-50%);
-  }
-  .tl-item {
-    display: grid; grid-template-columns: 1fr 60px 1fr;
-    gap: 1.5rem; margin-bottom: 2.5rem; align-items: start;
-  }
+  .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--border); transform: translateX(-50%); }
+  .tl-item { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 1.5rem; margin-bottom: 2.5rem; align-items: start; }
   .tl-left { text-align: right; }
-  .tl-right { text-align: left; }
-  .tl-empty { }
-  .tl-dot {
-    width: 14px; height: 14px;
-    background: var(--accent); border: 3px solid var(--white);
-    border-radius: 50%; margin: .5rem auto 0;
-    box-shadow: 0 0 0 1px var(--accent);
-  }
-  .tl-card {
-    background: var(--white); padding: 1.5rem;
-    border-left: 3px solid var(--accent);
-  }
+  .tl-dot { width: 14px; height: 14px; background: var(--accent); border: 3px solid var(--white); border-radius: 50%; margin: .5rem auto 0; box-shadow: 0 0 0 1px var(--accent); }
+  .tl-card { background: var(--white); padding: 1.5rem; border-left: 3px solid var(--accent); }
   .tl-left .tl-card { border-left: none; border-right: 3px solid var(--accent); }
-  .tl-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 700; color: var(--navy);
-    margin-bottom: .3rem;
-  }
+  .tl-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
   .tl-desc { font-size: .85rem; color: #667; line-height: 1.6; }
-  .tl-date {
-    font-size: .75rem; color: var(--accent); font-weight: 600;
-    text-transform: uppercase; letter-spacing: .08em; margin-bottom: .4rem;
-  }
+  .tl-date { font-size: .75rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .4rem; }
 
-  /* ─── GALLERY ─── */
+  /* GALLERY */
   #gallery { background: var(--navy); }
   #gallery .section-title { color: var(--white); }
   #gallery .section-sub { color: rgba(248,246,241,.5); }
-  .gallery-tabs {
-    display: flex; gap: 0; margin-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .gallery-tab {
-    padding: .75rem 2rem; background: none; border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: .82rem; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--text-muted); cursor: pointer;
-    border-bottom: 2px solid transparent; margin-bottom: -1px;
-    transition: all .3s;
-  }
+  .gallery-tabs { display: flex; gap: 0; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  .gallery-tab { padding: .75rem 2rem; background: none; border: none; font-family: 'DM Sans', sans-serif; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .3s; }
   .gallery-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
   .gallery-tab:hover { color: var(--accent-light); }
   .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-  .gallery-item {
-    aspect-ratio: 1; background: var(--navy-mid);
-    overflow: hidden; position: relative; cursor: pointer;
-  }
+  .gallery-item { aspect-ratio: 1; background: var(--navy-mid); overflow: hidden; position: relative; cursor: pointer; }
   .gallery-item:nth-child(3n+1) { grid-column: span 2; aspect-ratio: 2/1; }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
   .gallery-item:hover img { transform: scale(1.06); }
-  .gallery-placeholder {
-    width: 100%; height: 100%; min-height: 160px;
-    background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: .5rem; color: var(--text-muted);
-    transition: all .3s;
-  }
-  .gallery-item:hover .gallery-placeholder { background: var(--navy-light); color: var(--accent-light); }
-  .gallery-placeholder .gp-icon { font-size: 1.8rem; opacity: .4; }
-  .gallery-placeholder .gp-label { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; opacity: .5; }
-  .gallery-overlay {
-    position: absolute; inset: 0; background: rgba(10,22,40,.7);
-    display: flex; align-items: flex-end; padding: 1rem;
-    opacity: 0; transition: opacity .3s;
-  }
+  .gallery-overlay { position: absolute; inset: 0; background: rgba(10,22,40,.7); display: flex; align-items: flex-end; padding: 1rem; opacity: 0; transition: opacity .3s; }
   .gallery-item:hover .gallery-overlay { opacity: 1; }
   .gallery-caption { font-size: .8rem; color: var(--white); font-weight: 500; }
 
-  /* ─── VIDEO SECTION ─── */
-  #videos {
-    background: var(--white);
-    padding: 6rem;
-  }
+  /* VIDEO */
+  #videos { background: var(--white); padding: 6rem; }
   .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; align-items: start; }
-  .video-card {
-    background: var(--navy); position: relative; cursor: pointer;
-    overflow: hidden;
-  }
-  .video-thumb {
-    aspect-ratio: 16/9;
-    background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    transition: all .3s;
-  }
+  .video-card { background: var(--navy); position: relative; cursor: pointer; overflow: hidden; }
+  .video-thumb { aspect-ratio: 16/9; background: linear-gradient(135deg, var(--navy-mid), var(--navy-light)); display: flex; align-items: center; justify-content: center; position: relative; transition: all .3s; }
   .video-card:hover .video-thumb { filter: brightness(1.15); }
-  .video-play {
-    width: 60px; height: 60px;
-    background: var(--accent); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform .3s;
-  }
-  .video-card:hover .video-play { transform: scale(1.1); }
-  .video-play svg { fill: var(--navy); margin-left: 4px; }
   .video-info { padding: 1.5rem; }
-  .video-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: .4rem;
-  }
+  .video-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: .4rem; }
   .video-desc { font-size: .83rem; color: var(--text-muted); }
-  .video-badge {
-    position: absolute; top: 1rem; left: 1rem;
-    background: var(--accent); color: var(--navy);
-    font-size: .65rem; font-weight: 700; letter-spacing: .1em;
-    text-transform: uppercase; padding: .25rem .7rem;
-  }
-  /* Video portrait - card tengah */
-  .video-card:nth-child(2) .video-thumb {
-    aspect-ratio: 9/16;
-  }
+  .video-badge { position: absolute; top: 1rem; left: 1rem; background: var(--accent); color: var(--navy); font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .7rem; }
+  .video-card:nth-child(2) .video-thumb { aspect-ratio: 9/16; }
 
-  /* ─── CONTACT ─── */
-  #contact {
-    background: var(--navy);
-    text-align: center;
-    padding: 7rem 6rem;
-    position: relative; overflow: hidden;
-  }
-  #contact::before {
-    content: '';
-    position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(201,169,110,.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  /* CONTACT */
+  #contact { background: var(--navy); text-align: center; padding: 7rem 6rem; position: relative; overflow: hidden; }
+  #contact::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,169,110,.06) 0%, transparent 70%); pointer-events: none; }
   #contact .section-label { justify-content: center; }
   #contact .section-label::after { display: none; }
   #contact .section-title { color: var(--white); text-align: center; margin: 0 auto 1rem; }
-  .contact-email {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
-    color: var(--accent); margin: 2rem auto 3rem;
-    display: block; text-decoration: none;
-    transition: opacity .3s;
-  }
+  .contact-email { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2.2rem); color: var(--accent); margin: 2rem auto 3rem; display: block; text-decoration: none; transition: opacity .3s; }
   .contact-email:hover { opacity: .75; }
   .contact-socials { display: flex; justify-content: center; gap: 1rem; }
-  .social-btn {
-    padding: .75rem 1.8rem;
-    border: 1px solid var(--border); color: var(--text-muted);
-    font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
-    text-decoration: none; transition: all .3s;
-  }
+  .social-btn { padding: .75rem 1.8rem; border: 1px solid var(--border); color: var(--text-muted); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: all .3s; }
   .social-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy); border-top: 1px solid var(--border);
-    padding: 2rem 6rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
+  /* FOOTER */
+  footer { background: var(--navy); border-top: 1px solid var(--border); padding: 2rem 6rem; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: .8rem; color: var(--text-muted); }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; color: var(--white);
-  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--white); }
   .footer-logo span { color: var(--accent); }
 
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .fade-up { opacity: 0; animation: fadeUp .7s ease forwards; }
   .fade-up:nth-child(1) { animation-delay: .1s; }
   .fade-up:nth-child(2) { animation-delay: .25s; }
   .fade-up:nth-child(3) { animation-delay: .4s; }
   .fade-up:nth-child(4) { animation-delay: .55s; }
-
-  /* ─── SCROLL REVEAL ─── */
   .reveal { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 1100px) {
     #hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
@@ -603,44 +245,15 @@
     .nav-links { display: none; }
   }
 
-
-  .sertif-card {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-  .sertif-card img { display:block; transition: transform .4s; }
+  .sertif-card { background: var(--navy-mid); border: 1px solid var(--border); overflow: hidden; }
+  .sertif-card img { display: block; transition: transform .4s; }
   .sertif-card:hover img { transform: scale(1.04); }
-  .sertif-label {
-    padding: .8rem 1rem;
-    font-size: .78rem; color: var(--accent-light);
-    line-height: 1.4; letter-spacing: .03em;
-  }
-  #lightbox { display:none; }
-  #lightbox.active { display:flex !important; }
-
-  /* ─── CUSTOM SCROLLBAR ─── */
+  .sertif-label { padding: .8rem 1rem; font-size: .78rem; color: var(--accent-light); line-height: 1.4; letter-spacing: .03em; }
+  #lightbox { display: none; }
+  #lightbox.active { display: flex !important; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--navy); }
   ::-webkit-scrollbar-thumb { background: var(--accent); }
-
-  /* ─── UPLOAD HINT ─── */
-  .upload-hint {
-    display: inline-flex; align-items: center; gap: .5rem;
-    font-size: .72rem; color: var(--accent-light); opacity: .6;
-    border: 1px dashed rgba(201,169,110,.3);
-    padding: .5rem 1rem; margin-top: .8rem;
-    text-transform: uppercase; letter-spacing: .07em;
-  }
-
-<style>
-  .heic-note {
-    position:absolute; bottom:0; left:0; right:0;
-    background:rgba(10,22,40,.85); color:#c9a96e;
-    font-size:.65rem; text-align:center; padding:.3rem;
-    letter-spacing:.05em;
-  }
-</style>
 </style>
 </head>
 <body>
@@ -649,14 +262,15 @@
 <nav>
   <div class="nav-logo">Sri<span>.</span>Wahyuni</div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#lomba">Lomba</a></li>
-    <li><a href="#organisasi">Organisasi</a></li>
-    <li><a href="#kegiatan">Kegiatan</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-id="nav-about">About</a></li>
+    <li><a href="#projects" data-id="nav-projects">Projects</a></li>
+    <li><a href="#lomba" data-id="nav-lomba">Lomba</a></li>
+    <li><a href="#organisasi" data-id="nav-org">Organisasi</a></li>
+    <li><a href="#kegiatan" data-id="nav-kegiatan">Kegiatan</a></li>
+    <li><a href="#gallery" data-id="nav-gallery">Gallery</a></li>
+    <li><a href="#contact" data-id="nav-contact">Contact</a></li>
   </ul>
+  <button onclick="toggleLang()" id="lang-btn">🌐 EN</button>
 </nav>
 
 <!-- HERO -->
@@ -664,40 +278,24 @@
   <div class="hero-bg-pattern"></div>
   <div class="hero-grid-overlay"></div>
   <div class="hero-left">
-    <p class="hero-tag fade-up">Electrical Engineering · UMY · GPA 3.91</p>
-    <h1 class="hero-name fade-up">
-      Halo, Aku
-      <em>Sri Wahyuni</em>
-    </h1>
-    <p class="hero-role fade-up">Embedded Systems · PCB Design · Automation & Control</p>
-    <p class="hero-desc fade-up">
-      Electrical Engineering graduate (UMY, 2026) dengan GPA 3.91/4.00. 
-      Spesialisasi di embedded systems, PCB design, dan microcontroller-based automation. 
-      KRTI National Finalist 2025 · Pernah memimpin tim R&D 10 orang.
-    </p>
+    <p class="hero-tag fade-up" data-id="hero-tag">Electrical Engineering · UMY · GPA 3.91</p>
+    <h1 class="hero-name fade-up" data-id="hero-name">Halo, Aku<em>Sri Wahyuni</em></h1>
+    <p class="hero-role fade-up" data-id="hero-role">Embedded Systems · PCB Design · Automation &amp; Control</p>
+    <p class="hero-desc fade-up" data-id="hero-desc">Electrical Engineering graduate (UMY, 2026) dengan GPA 3.91/4.00. Spesialisasi di embedded systems, PCB design, dan microcontroller-based automation. KRTI National Finalist 2025 · Pernah memimpin tim R&amp;D 10 orang.</p>
     <div class="hero-cta fade-up">
-      <a href="#projects" class="btn-primary">Lihat Projects</a>
-      <a href="#contact" class="btn-outline">Hubungi Aku</a>
+      <a href="#projects" class="btn-primary" data-id="btn-projects">Lihat Projects</a>
+      <a href="#contact" class="btn-outline" data-id="btn-contact">Hubungi Aku</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-photo-frame">
       <div class="hero-photo-border"></div>
       <div class="hero-photo-bg"></div>
-      <img src="data:image/jpeg;base64,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" alt="Sri Wahyuni" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:1;">
+      <img src="DSC07734.JPG" alt="Sri Wahyuni" style="width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:1;">
       <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-num">3.91</div>
-          <div class="stat-label">GPA</div>
-        </div>
-        <div class="stat-card dark">
-          <div class="stat-num">2+</div>
-          <div class="stat-label">Lomba Nasional</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">10</div>
-          <div class="stat-label">Tim R&D</div>
-        </div>
+        <div class="stat-card"><div class="stat-num">3.91</div><div class="stat-label">GPA</div></div>
+        <div class="stat-card dark"><div class="stat-num">2+</div><div class="stat-label" data-id="stat-lomba">Lomba Nasional</div></div>
+        <div class="stat-card"><div class="stat-num">10</div><div class="stat-label" data-id="stat-team">Tim R&amp;D</div></div>
       </div>
     </div>
   </div>
@@ -706,19 +304,13 @@
 <!-- ABOUT -->
 <section id="about">
   <div>
-    <p class="section-label reveal">Tentang Aku</p>
-    <h2 class="section-title reveal">Siapa aku<br><em>sebenarnya?</em></h2>
-    <p class="section-sub reveal">Sedikit cerita tentang perjalananku, passion, dan hal-hal yang aku perjuangkan.</p>
+    <p class="section-label reveal" data-id="about-label">Tentang Aku</p>
+    <h2 class="section-title reveal" data-id="about-title">Siapa aku<br><em>sebenarnya?</em></h2>
+    <p class="section-sub reveal" data-id="about-sub">Sedikit cerita tentang perjalananku, passion, dan hal-hal yang aku perjuangkan.</p>
     <div class="about-text reveal">
-      <p>
-        Halo! Aku Sri Wahyuni, fresh graduate Teknik Elektro dari Universitas Muhammadiyah Yogyakarta (2026) dengan GPA 3.91/4.00, lulus dalam 3 tahun 4 bulan secara akselerasi.
-      </p>
-      <p>
-        Aku spesialisasi di embedded systems, PCB design (KiCad/EAGLE), firmware C/C++ untuk sistem berbasis microcontroller, serta automation &amp; control system termasuk dasar pemrograman PLC dan kontrol logika industri. Pernah memimpin tim R&amp;D 10 orang dalam pengembangan modular UAV Flight Controller yang menjadi Finalis Nasional KRTI 2025  dan menjadi skripsi sarjanaku.
-      </p>
-      <p>
-        Ketertarikanku di bidang otomasi industri juga didukung sertifikasi resmi sebagai <strong style="color:var(--accent)">Teknisi Otomasi Industri Senior &mdash; BNSP</strong>, yang mencerminkan komitmenku untuk terus berkembang di dunia engineering yang nyata.
-      </p>
+      <p data-id="about-p1">Halo! Aku Sri Wahyuni, fresh graduate Teknik Elektro dari Universitas Muhammadiyah Yogyakarta (2026) dengan GPA 3.91/4.00, lulus dalam 3 tahun 4 bulan secara akselerasi.</p>
+      <p data-id="about-p2">Aku spesialisasi di embedded systems, PCB design (KiCad/EAGLE), firmware C/C++ untuk sistem berbasis microcontroller, serta automation &amp; control system termasuk dasar pemrograman PLC dan kontrol logika industri. Pernah memimpin tim R&amp;D 10 orang dalam pengembangan modular UAV Flight Controller yang menjadi Finalis Nasional KRTI 2025 — dan menjadi skripsi sarjanaku.</p>
+      <p data-id="about-p3">Ketertarikanku di bidang otomasi industri juga didukung sertifikasi resmi sebagai <strong style="color:var(--accent)">Teknisi Otomasi Industri Senior — BNSP</strong>, yang mencerminkan komitmenku untuk terus berkembang di dunia engineering yang nyata.</p>
     </div>
     <div class="about-skills reveal">
       <div class="skill-tags">
@@ -728,7 +320,7 @@
         <span class="skill-tag">I2C · UART · SPI</span>
         <span class="skill-tag">Raspberry Pi</span>
         <span class="skill-tag">PLC Programming</span>
-        <span class="skill-tag">Automation & Control</span>
+        <span class="skill-tag">Automation &amp; Control</span>
         <span class="skill-tag">IMU / GPS / ToF</span>
         <span class="skill-tag">Oscilloscope Debug</span>
         <span class="skill-tag">Leadership</span>
@@ -736,22 +328,10 @@
     </div>
   </div>
   <div class="about-right reveal">
-    <div class="about-stat-box">
-      <div class="about-stat-num">3.91</div>
-      <div class="about-stat-desc">GPA / 4.00</div>
-    </div>
-    <div class="about-stat-box">
-      <div class="about-stat-num">3Y 4M</div>
-      <div class="about-stat-desc">Lulus Akselerasi</div>
-    </div>
-    <div class="about-stat-box">
-      <div class="about-stat-num">10</div>
-      <div class="about-stat-desc">Anggota Tim R&D</div>
-    </div>
-    <div class="about-stat-box">
-      <div class="about-stat-num">2+</div>
-      <div class="about-stat-desc">Kompetisi Nasional</div>
-    </div>
+    <div class="about-stat-box"><div class="about-stat-num">3.91</div><div class="about-stat-desc" data-id="stat-gpa">GPA / 4.00</div></div>
+    <div class="about-stat-box"><div class="about-stat-num">3Y 4M</div><div class="about-stat-desc" data-id="stat-grad">Lulus Akselerasi</div></div>
+    <div class="about-stat-box"><div class="about-stat-num">10</div><div class="about-stat-desc" data-id="stat-rd">Anggota Tim R&amp;D</div></div>
+    <div class="about-stat-box"><div class="about-stat-num">2+</div><div class="about-stat-desc" data-id="stat-comp">Kompetisi Nasional</div></div>
   </div>
 </section>
 
@@ -759,63 +339,44 @@
 <section id="projects">
   <div class="projects-header">
     <div>
-      <p class="section-label reveal">Portfolio</p>
-      <h2 class="section-title reveal">Project yang<br><em>pernah kubuat</em></h2>
+      <p class="section-label reveal" data-id="proj-label">Portfolio</p>
+      <h2 class="section-title reveal" data-id="proj-title">Project yang<br><em>pernah kubuat</em></h2>
     </div>
-    <p class="section-sub reveal" style="margin-bottom:0;text-align:right;">
-      Dari ide jadi kenyataan.<br>Setiap proyek punya ceritanya sendiri.
-    </p>
+    <p class="section-sub reveal" style="margin-bottom:0;text-align:right;" data-id="proj-sub">Dari ide jadi kenyataan.<br>Setiap proyek punya ceritanya sendiri.</p>
   </div>
   <div class="projects-grid reveal">
-    <!-- Featured Project -->
     <div class="project-card featured">
-      <div class="project-featured-img">
-        <img src="IMG_20240815_081707_274.jpg" alt="UAV Project" style="width:100%;height:100%;object-fit:cover;">
-      </div>
+      <div class="project-featured-img"><img src="IMG_20240815_081707_274.jpg" alt="UAV Project"></div>
       <div>
         <div class="project-num">01</div>
         <div class="project-icon">🚁</div>
-        <h3 class="project-title">Modular UAV Flight Controller System</h3>
-        <p class="project-desc">Pengembangan sistem kendali UAV berbasis dual-processor: Teensy 4.0 untuk real-time control dan Raspberry Pi 4B untuk high-level processing, terintegrasi dalam custom 2-layer PCB. Menjadi skripsi sarjana dan meraih <strong style="color:var(--accent)">KRTI National Finalist 2025</strong>.</p>
-        <div class="project-tags">
-          <span class="project-tag">Teensy 4.0</span>
-          <span class="project-tag">Raspberry Pi 4B</span>
-          <span class="project-tag">KiCad PCB</span>
-          <span class="project-tag">C/C++</span>
-          <span class="project-tag">IMU/GPS</span>
-        </div>
+        <h3 class="project-title" data-id="p1-title">Modular UAV Flight Controller System</h3>
+        <p class="project-desc" data-id="p1-desc">Pengembangan sistem kendali UAV berbasis dual-processor: Teensy 4.0 untuk real-time control dan Raspberry Pi 4B untuk high-level processing, terintegrasi dalam custom 2-layer PCB. Menjadi skripsi sarjana dan meraih <strong style="color:var(--accent)">KRTI National Finalist 2025</strong>.</p>
+        <div class="project-tags"><span class="project-tag">Teensy 4.0</span><span class="project-tag">Raspberry Pi 4B</span><span class="project-tag">KiCad PCB</span><span class="project-tag">C/C++</span><span class="project-tag">IMU/GPS</span></div>
       </div>
     </div>
-    <!-- Project 2 -->
     <div class="project-card">
-      <div class="project-num">02</div>
-      <div class="project-icon">🔌</div>
-      <h3 class="project-title">Custom 2-Layer PCB Design</h3>
-      <p class="project-desc">Desain PCB dual-fungsi sebagai flight controller sekaligus Raspberry Pi carrier board, mencakup power routing, grounding layout, dan signal routing untuk meminimalkan noise.</p>
+      <div class="project-num">02</div><div class="project-icon">🔌</div>
+      <h3 class="project-title" data-id="p2-title">Custom 2-Layer PCB Design</h3>
+      <p class="project-desc" data-id="p2-desc">Desain PCB dual-fungsi sebagai flight controller sekaligus Raspberry Pi carrier board, mencakup power routing, grounding layout, dan signal routing untuk meminimalkan noise.</p>
       <div class="project-tags"><span class="project-tag">KiCad</span><span class="project-tag">EAGLE</span><span class="project-tag">PCB</span></div>
     </div>
-    <!-- Project 3 -->
     <div class="project-card">
-      <div class="project-num">03</div>
-      <div class="project-icon">📡</div>
-      <h3 class="project-title">Multi-Sensor Integration Firmware</h3>
-      <p class="project-desc">Firmware real-time di Teensy 4.0 untuk stabilisasi UAV, mengintegrasikan IMU (MPU6050/9250), GPS, BMP280, dan ToF sensor via I2C & UART.</p>
+      <div class="project-num">03</div><div class="project-icon">📡</div>
+      <h3 class="project-title" data-id="p3-title">Multi-Sensor Integration Firmware</h3>
+      <p class="project-desc" data-id="p3-desc">Firmware real-time di Teensy 4.0 untuk stabilisasi UAV, mengintegrasikan IMU (MPU6050/9250), GPS, BMP280, dan ToF sensor via I2C &amp; UART.</p>
       <div class="project-tags"><span class="project-tag">Embedded C/C++</span><span class="project-tag">I2C</span><span class="project-tag">UART</span></div>
     </div>
-    <!-- Project 4 -->
     <div class="project-card">
-      <div class="project-num">04</div>
-      <div class="project-icon">⚡</div>
-      <h3 class="project-title">MEP — PT.KAI DAOP 6</h3>
-      <p class="project-desc">Terlibat langsung dalam kegiatan MEP di lingkungan operasional perkeretaapian. Tugas meliputi: penyusunan RAB pemasangan PJUTS, pengecekan sistem grounding persinyalan, serta perawatan preventif lift, eskalator, dan genset stasiun. Mendapat pengalaman nyata bekerja di lingkungan teknis industri yang terstruktur di bawah supervisi engineer senior.</p>
+      <div class="project-num">04</div><div class="project-icon">⚡</div>
+      <h3 class="project-title" data-id="p4-title">MEP — PT.KAI DAOP 6</h3>
+      <p class="project-desc" data-id="p4-desc">Terlibat langsung dalam kegiatan MEP di lingkungan operasional perkeretaapian. Tugas meliputi: penyusunan RAB pemasangan PJUTS, pengecekan sistem grounding persinyalan, serta perawatan preventif lift, eskalator, dan genset stasiun.</p>
       <div class="project-tags"><span class="project-tag">Solar Power</span><span class="project-tag">MEP</span><span class="project-tag">KAI</span></div>
     </div>
-    <!-- Project 5 -->
     <div class="project-card">
-      <div class="project-num">05</div>
-      <div class="project-icon">🔬</div>
-      <h3 class="project-title">Lab Assistant — Electronic Circuits</h3>
-      <p class="project-desc">Memfasilitasi sesi lab rangkaian analog & digital, membimbing mahasiswa dalam pengukuran dan troubleshooting rangkaian di Universitas Muhammadiyah Yogyakarta.</p>
+      <div class="project-num">05</div><div class="project-icon">🔬</div>
+      <h3 class="project-title" data-id="p5-title">Lab Assistant — Electronic Circuits</h3>
+      <p class="project-desc" data-id="p5-desc">Memfasilitasi sesi lab rangkaian analog &amp; digital, membimbing mahasiswa dalam pengukuran dan troubleshooting rangkaian di Universitas Muhammadiyah Yogyakarta.</p>
       <div class="project-tags"><span class="project-tag">Analog</span><span class="project-tag">Digital Circuit</span><span class="project-tag">Teaching</span></div>
     </div>
   </div>
@@ -823,356 +384,139 @@
 
 <!-- LOMBA -->
 <section id="lomba">
-  <p class="section-label reveal">Achievements</p>
-  <h2 class="section-title reveal">Lomba &<br><em>Penghargaan</em></h2>
-  <p class="section-sub reveal">Kompetisi yang pernah aku ikuti dan pencapaian yang membanggakan.</p>
+  <p class="section-label reveal" data-id="lomba-label">Achievements</p>
+  <h2 class="section-title reveal" data-id="lomba-title">Lomba &amp;<br><em>Penghargaan</em></h2>
+  <p class="section-sub reveal" data-id="lomba-sub">Kompetisi yang pernah aku ikuti dan pencapaian yang membanggakan.</p>
   <div class="lomba-list reveal">
-    <div class="lomba-item">
-      <div class="lomba-medal">🏆</div>
-      <div class="lomba-info">
-        <div class="lomba-title">KRTI — Kontes Robot Terbang Indonesia</div>
-        <div class="lomba-org">Technology Development Division · Tingkat Nasional</div>
-      </div>
-      <div class="lomba-meta">
-        <div class="lomba-award">Finalis Nasional</div>
-        <div class="lomba-year">2025</div>
-      </div>
-    </div>
-    <div class="lomba-item">
-      <div class="lomba-medal">🎖️</div>
-      <div class="lomba-info">
-        <div class="lomba-title">KRTI — Kontes Robot Terbang Indonesia</div>
-        <div class="lomba-org">Technology Development Division · Tingkat Wilayah</div>
-      </div>
-      <div class="lomba-meta">
-        <div class="lomba-award">Peserta Wilayah</div>
-        <div class="lomba-year">2024</div>
-      </div>
-    </div>
-    <div class="lomba-item">
-      <div class="lomba-medal">🔬</div>
-      <div class="lomba-info">
-        <div class="lomba-title">ON-MIPA-PT — Olimpiade Nasional MIPA Perguruan Tinggi</div>
-        <div class="lomba-org">Bidang Fisika · Tingkat Wilayah</div>
-      </div>
-      <div class="lomba-meta">
-        <div class="lomba-award">Peserta Wilayah</div>
-        <div class="lomba-year">2024</div>
-      </div>
-    </div>
-    <div class="lomba-item">
-      <div class="lomba-medal">🤖</div>
-      <div class="lomba-info">
-        <div class="lomba-title">6th KIBO Robot Programming Challenge</div>
-        <div class="lomba-org">Badan Riset dan Inovasi Nasional (BRIN) · Tingkat Nasional</div>
-      </div>
-      <div class="lomba-meta">
-        <div class="lomba-award">Peserta Nasional</div>
-        <div class="lomba-year">2025</div>
-      </div>
-    </div>
-    <div class="lomba-item">
-      <div class="lomba-medal">🎤</div>
-      <div class="lomba-info">
-        <div class="lomba-title">5th ICE3IS — International Conference on Electronic, Electrical Engineering and Intelligent System</div>
-        <div class="lomba-org">Operator Konferensi Internasional</div>
-      </div>
-      <div class="lomba-meta">
-        <div class="lomba-award">Operator</div>
-        <div class="lomba-year">2026</div>
-      </div>
-    </div>
-    <div class="lomba-item">
-      <div class="lomba-medal">📜</div>
-      <div class="lomba-info">
-        <div class="lomba-title">Industrial Automation Senior Technician — BNSP</div>
-        <div class="lomba-org">Badan Nasional Sertifikasi Profesi · Competency Assessment Completed</div>
-      </div>
-      <div class="lomba-meta">
-        <div class="lomba-award">Sertifikasi</div>
-        <div class="lomba-year">2026</div>
-      </div>
-    </div>
+    <div class="lomba-item"><div class="lomba-medal">🏆</div><div class="lomba-info"><div class="lomba-title">KRTI — Kontes Robot Terbang Indonesia</div><div class="lomba-org">Technology Development Division · Tingkat Nasional</div></div><div class="lomba-meta"><div class="lomba-award" data-id="award-finalist">Finalis Nasional</div><div class="lomba-year">2025</div></div></div>
+    <div class="lomba-item"><div class="lomba-medal">🎖️</div><div class="lomba-info"><div class="lomba-title">KRTI — Kontes Robot Terbang Indonesia</div><div class="lomba-org">Technology Development Division · Tingkat Wilayah</div></div><div class="lomba-meta"><div class="lomba-award" data-id="award-peserta">Peserta Wilayah</div><div class="lomba-year">2024</div></div></div>
+    <div class="lomba-item"><div class="lomba-medal">🔬</div><div class="lomba-info"><div class="lomba-title">ON-MIPA-PT — Olimpiade Nasional MIPA Perguruan Tinggi</div><div class="lomba-org">Bidang Fisika · Tingkat Wilayah</div></div><div class="lomba-meta"><div class="lomba-award">Peserta Wilayah</div><div class="lomba-year">2024</div></div></div>
+    <div class="lomba-item"><div class="lomba-medal">🤖</div><div class="lomba-info"><div class="lomba-title">6th KIBO Robot Programming Challenge</div><div class="lomba-org">Badan Riset dan Inovasi Nasional (BRIN) · Tingkat Nasional</div></div><div class="lomba-meta"><div class="lomba-award">Peserta Nasional</div><div class="lomba-year">2025</div></div></div>
+    <div class="lomba-item"><div class="lomba-medal">🎤</div><div class="lomba-info"><div class="lomba-title">5th ICE3IS — International Conference on Electronic, Electrical Engineering and Intelligent System</div><div class="lomba-org" data-id="ice3is-org">Operator Konferensi Internasional</div></div><div class="lomba-meta"><div class="lomba-award">Operator</div><div class="lomba-year">2026</div></div></div>
+    <div class="lomba-item"><div class="lomba-medal">📜</div><div class="lomba-info"><div class="lomba-title">Industrial Automation Senior Technician — BNSP</div><div class="lomba-org" data-id="bnsp-org">Badan Nasional Sertifikasi Profesi · Competency Assessment Completed</div></div><div class="lomba-meta"><div class="lomba-award" data-id="award-sertif">Sertifikasi</div><div class="lomba-year">2026</div></div></div>
   </div>
 
   <!-- SERTIFIKAT TOGGLE -->
   <div style="margin-top:2.5rem;" class="reveal">
     <button onclick="toggleSertif()" id="sertif-btn"
-      style="display:flex;align-items:center;gap:.8rem;background:none;border:1px solid rgba(201,169,110,.3);
-             color:var(--accent);padding:.85rem 2rem;font-family:'DM Sans',sans-serif;
-             font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;">
-      <span>📋</span> Lihat Sertifikat
+      style="display:flex;align-items:center;gap:.8rem;background:none;border:1px solid rgba(201,169,110,.3);color:var(--accent);padding:.85rem 2rem;font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;">
+      <span id="sertif-icon">📋</span> <span data-id="sertif-btn-text">Lihat Sertifikat</span>
       <span id="sertif-arrow" style="transition:transform .3s;">▼</span>
     </button>
-    <div id="sertif-grid" style="display:none;margin-top:1.5rem;
-         display:none;grid-template-columns:repeat(3,1fr);gap:1rem;">
-      <div class="sertif-card">
-        <img src="Screenshot111839.png" alt="Sertifikat ICE3IS"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;"
-             onclick="openLightbox(this.src)">
-        <div class="sertif-label">Operator 5th ICE3IS — Konferensi Internasional</div>
-      </div>
-      <div class="sertif-card">
-        <img src="Screenshot112959.png" alt="Sertifikat KIBO"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;"
-             onclick="openLightbox(this.src)">
-        <div class="sertif-label">6th KIBO Robot Programming Challenge — Nasional</div>
-      </div>
-      <div class="sertif-card">
-        <img src="Screenshot113403.png" alt="Sertifikat KRTI 2024"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;"
-             onclick="openLightbox(this.src)">
-        <div class="sertif-label">KRTI 2024 — Tingkat Wilayah</div>
-      </div>
-      <div class="sertif-card">
-        <img src="Screenshot113952.png" alt="Sertifikat ON-MIPA"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;"
-             onclick="openLightbox(this.src)">
-        <div class="sertif-label">ON-MIPA-PT Fisika 2024 — Tingkat Wilayah</div>
-      </div>
-      <div class="sertif-card">
-        <img src="Screenshot114135.png" alt="Sertifikat KRTI 2025"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;"
-             onclick="openLightbox(this.src)">
-        <div class="sertif-label">KRTI 2025 — Finalis Nasional Technology Development</div>
-      </div>
-      <div class="sertif-card">
-        <img src="WhatsAppImage173717.jpeg" alt="Surat Magang KAI"
-             style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;"
-             onclick="openLightbox(this.src)">
-        <div class="sertif-label">Surat Keterangan Magang — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)</div>
-      </div>
+    <div id="sertif-grid" style="display:none;margin-top:1.5rem;grid-template-columns:repeat(3,1fr);gap:1rem;">
+      <div class="sertif-card"><img src="Screenshot111839.png" alt="Sertifikat ICE3IS" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)"><div class="sertif-label" data-id="s1-label">Operator 5th ICE3IS — Konferensi Internasional</div></div>
+      <div class="sertif-card"><img src="Screenshot112959.png" alt="Sertifikat KIBO" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)"><div class="sertif-label" data-id="s2-label">6th KIBO Robot Programming Challenge — Nasional</div></div>
+      <div class="sertif-card"><img src="Screenshot113403.png" alt="Sertifikat KRTI 2024" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)"><div class="sertif-label" data-id="s3-label">KRTI 2024 — Tingkat Wilayah</div></div>
+      <div class="sertif-card"><img src="Screenshot113952.png" alt="Sertifikat ON-MIPA" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)"><div class="sertif-label" data-id="s4-label">ON-MIPA-PT Fisika 2024 — Tingkat Wilayah</div></div>
+      <div class="sertif-card"><img src="Screenshot114135.png" alt="Sertifikat KRTI 2025" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)"><div class="sertif-label" data-id="s5-label">KRTI 2025 — Finalis Nasional Technology Development</div></div>
+      <div class="sertif-card"><img src="WhatsAppImage173717.jpeg" alt="Surat Magang KAI" style="width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;" onclick="openLightbox(this.src)"><div class="sertif-label" data-id="s6-label">Surat Keterangan Magang — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)</div></div>
     </div>
   </div>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" onclick="closeLightbox()"
-    style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);
-           z-index:999;align-items:center;justify-content:center;cursor:zoom-out;">
+  <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;cursor:zoom-out;">
     <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;">
   </div>
 </section>
 
 <!-- ORGANISASI -->
 <section id="organisasi">
-  <p class="section-label reveal">Organizations</p>
-  <h2 class="section-title reveal">Organisasi &<br><em>Kepanitiaan</em></h2>
-  <p class="section-sub reveal">Tempat aku belajar memimpin, berkolaborasi, dan berkontribusi.</p>
+  <p class="section-label reveal" data-id="org-label">Organizations</p>
+  <h2 class="section-title reveal" data-id="org-title">Organisasi &amp;<br><em>Kepanitiaan</em></h2>
+  <p class="section-sub reveal" data-id="org-sub">Tempat aku belajar memimpin, berkolaborasi, dan berkontribusi.</p>
   <div class="org-grid reveal">
-    <div class="org-card">
-      <div class="org-icon">🚁</div>
-      <div>
-        <div class="org-name">Microcontroller & Robotics Club — UMY</div>
-        <div class="org-role">Research Team Leader</div>
-        <div class="org-desc">Memimpin tim engineering di kompetisi UAV tingkat nasional KRTI 2025. Mengelola delegasi tugas, kontrol timeline, koordinasi teknis, serta supervisi integrasi hardware-software antar divisi. Hasil: <strong>Finalis Nasional KRTI 2025</strong>.</div>
-        <div class="org-period">📅 2024 — 2025</div>
-      </div>
-    </div>
-    <div class="org-card">
-      <div class="org-icon">🏛️</div>
-      <div>
-        <div class="org-name">BEM Fakultas Teknik — UMY</div>
-        <div class="org-role">Sekretaris Dinas Sosial Kerja Sama</div>
-        <div class="org-desc">Mengelola dokumentasi dan perencanaan administratif program sosial & kemitraan. Berkoordinasi dengan mitra eksternal dan komite internal, serta menyusun proposal dan laporan terstruktur.</div>
-        <div class="org-period">📅 2023 — 2024</div>
-      </div>
-    </div>
-    <div class="org-card">
-      <div class="org-icon">🎓</div>
-      <div>
-        <div class="org-name">Panitia Masa Ta'aruf Mahasiswa Teknik Elektro</div>
-        <div class="org-role">Sekretaris — Orientasi Mahasiswa Baru</div>
-        <div class="org-desc">Mengelola dokumentasi acara, penjadwalan, dan koordinasi antar divisi. Membantu pelaksanaan operasional agar program berjalan terstruktur dan tepat sasaran.</div>
-        <div class="org-period">📅 2023</div>
-      </div>
-    </div>
-    <div class="org-card">
-      <div class="org-icon">🤝</div>
-      <div>
-        <div class="org-name">Program Pengabdian "Teknik Merasa" — Fakultas Teknik UMY</div>
-        <div class="org-role">Sekretaris — Program Pengabdian Masyarakat</div>
-        <div class="org-desc">Menangani dokumentasi program dan koordinasi internal. Membantu perencanaan dan pelaksanaan kegiatan pengabdian masyarakat yang dipimpin mahasiswa Fakultas Teknik.</div>
-        <div class="org-period">📅 2024</div>
-      </div>
-    </div>
-    <div class="org-card">
-      <div class="org-icon">🚂</div>
-      <div>
-        <div class="org-name">PT Kereta Api Indonesia — DAOP 6 Yogyakarta</div>
-        <div class="org-role">Intern — Mechanical, Electrical & Plumbing (MEP)</div>
-        <div class="org-desc">Membantu instalasi grounding sistem persinyalan kereta, mendukung pengujian perawatan preventif & pengujian kelistrikan operasional, serta berkontribusi dalam estimasi biaya proyek solar street lighting.</div>
-        <div class="org-period">📅 Jun — Jul 2025</div>
-      </div>
-    </div>
-    <div class="org-card">
-      <div class="org-icon">🔬</div>
-      <div>
-        <div class="org-name">Universitas Muhammadiyah Yogyakarta</div>
-        <div class="org-role">Laboratory Assistant — Electronic Circuits</div>
-        <div class="org-desc">Membimbing mahasiswa dalam troubleshooting dan problem-solving terstruktur. Membantu manajemen sesi lab, memastikan kepatuhan prosedur, dan mendukung penjelasan teknis dalam perkuliahan.</div>
-        <div class="org-period">📅 Apr — Des 2025</div>
-      </div>
-    </div>
+    <div class="org-card"><div class="org-icon">🚁</div><div><div class="org-name">Microcontroller &amp; Robotics Club — UMY</div><div class="org-role">Research Team Leader</div><div class="org-desc" data-id="org1-desc">Memimpin tim engineering di kompetisi UAV tingkat nasional KRTI 2025. Mengelola delegasi tugas, kontrol timeline, koordinasi teknis, serta supervisi integrasi hardware-software antar divisi. Hasil: <strong>Finalis Nasional KRTI 2025</strong>.</div><div class="org-period">📅 2024 — 2025</div></div></div>
+    <div class="org-card"><div class="org-icon">🏛️</div><div><div class="org-name">BEM Fakultas Teknik — UMY</div><div class="org-role" data-id="org2-role">Sekretaris Dinas Sosial Kerja Sama</div><div class="org-desc" data-id="org2-desc">Mengelola dokumentasi dan perencanaan administratif program sosial &amp; kemitraan. Berkoordinasi dengan mitra eksternal dan komite internal, serta menyusun proposal dan laporan terstruktur.</div><div class="org-period">📅 2023 — 2024</div></div></div>
+    <div class="org-card"><div class="org-icon">🎓</div><div><div class="org-name" data-id="org3-name">Panitia Masa Ta'aruf Mahasiswa Teknik Elektro</div><div class="org-role" data-id="org3-role">Sekretaris — Orientasi Mahasiswa Baru</div><div class="org-desc" data-id="org3-desc">Mengelola dokumentasi acara, penjadwalan, dan koordinasi antar divisi. Membantu pelaksanaan operasional agar program berjalan terstruktur dan tepat sasaran.</div><div class="org-period">📅 2023</div></div></div>
+    <div class="org-card"><div class="org-icon">🤝</div><div><div class="org-name" data-id="org4-name">Program Pengabdian "Teknik Merasa" — Fakultas Teknik UMY</div><div class="org-role" data-id="org4-role">Sekretaris — Program Pengabdian Masyarakat</div><div class="org-desc" data-id="org4-desc">Menangani dokumentasi program dan koordinasi internal. Membantu perencanaan dan pelaksanaan kegiatan pengabdian masyarakat yang dipimpin mahasiswa Fakultas Teknik.</div><div class="org-period">📅 2024</div></div></div>
+    <div class="org-card"><div class="org-icon">🚂</div><div><div class="org-name">PT Kereta Api Indonesia — DAOP 6 Yogyakarta</div><div class="org-role" data-id="org5-role">Intern — Mechanical, Electrical &amp; Plumbing (MEP)</div><div class="org-desc" data-id="org5-desc">Membantu instalasi grounding sistem persinyalan kereta, mendukung pengujian perawatan preventif &amp; pengujian kelistrikan operasional, serta berkontribusi dalam estimasi biaya proyek solar street lighting.</div><div class="org-period">📅 Jun — Jul 2025</div></div></div>
+    <div class="org-card"><div class="org-icon">🔬</div><div><div class="org-name">Universitas Muhammadiyah Yogyakarta</div><div class="org-role" data-id="org6-role">Laboratory Assistant — Electronic Circuits</div><div class="org-desc" data-id="org6-desc">Membimbing mahasiswa dalam troubleshooting dan problem-solving terstruktur. Membantu manajemen sesi lab, memastikan kepatuhan prosedur, dan mendukung penjelasan teknis dalam perkuliahan.</div><div class="org-period">📅 Apr — Des 2025</div></div></div>
   </div>
 </section>
 
 <!-- KEGIATAN -->
 <section id="kegiatan">
-  <div style="text-align:center; margin-bottom:1rem;">
-    <p class="section-label reveal" style="justify-content:center;">Activities</p>
-    <h2 class="section-title reveal" style="text-align:center;">Perjalanan &<br><em>Kegiatan</em></h2>
-    <p class="section-sub reveal" style="margin:0 auto 0; text-align:center;">Timeline aktivitas dan pengalamanku selama ini.</p>
+  <div style="text-align:center;margin-bottom:1rem;">
+    <p class="section-label reveal" style="justify-content:center;" data-id="act-label">Activities</p>
+    <h2 class="section-title reveal" style="text-align:center;" data-id="act-title">Perjalanan &amp;<br><em>Kegiatan</em></h2>
+    <p class="section-sub reveal" style="margin:0 auto;text-align:center;" data-id="act-sub">Timeline aktivitas dan pengalamanku selama ini.</p>
   </div>
   <div class="timeline reveal">
     <div class="tl-item">
-      <div class="tl-left">
-        <div class="tl-card">
-          <div class="tl-date">2026</div>
-          <div class="tl-title">Sertifikasi BNSP — Industrial Automation Senior Technician</div>
-          <div class="tl-desc">Menyelesaikan competency assessment sertifikasi profesi otomasi industri dari Badan Nasional Sertifikasi Profesi.</div>
-        </div>
-      </div>
+      <div class="tl-left"><div class="tl-card"><div class="tl-date">2026</div><div class="tl-title" data-id="tl1-title">Sertifikasi BNSP — Industrial Automation Senior Technician</div><div class="tl-desc" data-id="tl1-desc">Menyelesaikan competency assessment sertifikasi profesi otomasi industri dari Badan Nasional Sertifikasi Profesi.</div></div></div>
       <div><div class="tl-dot"></div></div>
       <div class="tl-empty"></div>
     </div>
     <div class="tl-item">
       <div class="tl-empty"></div>
       <div><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-card">
-          <div class="tl-date">Okt 2024 — Nov 2025</div>
-          <div class="tl-title">R&D Team Lead — KRTI Nasional 2025</div>
-          <div class="tl-desc">Memimpin 10 orang tim pengembangan UAV Flight Controller, membawa tim ke panggung Finalis Nasional KRTI 2025.</div>
-        </div>
-      </div>
+      <div class="tl-right"><div class="tl-card"><div class="tl-date">Okt 2024 — Nov 2025</div><div class="tl-title" data-id="tl2-title">R&amp;D Team Lead — KRTI Nasional 2025</div><div class="tl-desc" data-id="tl2-desc">Memimpin 10 orang tim pengembangan UAV Flight Controller, membawa tim ke panggung Finalis Nasional KRTI 2025.</div></div></div>
     </div>
     <div class="tl-item">
-      <div class="tl-left">
-        <div class="tl-card">
-          <div class="tl-date">Jun — Jul 2025</div>
-          <div class="tl-title">Magang MEP — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)</div>
-          <div class="tl-desc">Terlibat langsung dalam kegiatan Mechanical, Electrical & Plumbing di lingkungan operasional perkeretaapian. Tugas meliputi: penyusunan RAB pemasangan PJUTS (Penerangan Jalan Umum Tenaga Surya), pengecekan sistem grounding persinyalan, serta perawatan preventif lift, eskalator, dan genset stasiun. Mendapat pengalaman nyata bekerja di lingkungan teknis industri yang terstruktur di bawah supervisi engineer senior.</div>
-        </div>
-      </div>
+      <div class="tl-left"><div class="tl-card"><div class="tl-date">Jun — Jul 2025</div><div class="tl-title" data-id="tl3-title">Magang MEP — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)</div><div class="tl-desc" data-id="tl3-desc">Terlibat langsung dalam kegiatan Mechanical, Electrical &amp; Plumbing di lingkungan operasional perkeretaapian. Tugas meliputi: penyusunan RAB pemasangan PJUTS, pengecekan sistem grounding persinyalan, serta perawatan preventif lift, eskalator, dan genset stasiun.</div></div></div>
       <div><div class="tl-dot"></div></div>
       <div class="tl-empty"></div>
     </div>
     <div class="tl-item">
       <div class="tl-empty"></div>
       <div><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-card">
-          <div class="tl-date">Apr 2025</div>
-          <div class="tl-title">Lab Assistant — Electronic Circuits UMY</div>
-          <div class="tl-desc">Membimbing mahasiswa dalam sesi lab rangkaian analog dan digital, teknik pengukuran, dan troubleshooting.</div>
-        </div>
-      </div>
+      <div class="tl-right"><div class="tl-card"><div class="tl-date">Apr 2025</div><div class="tl-title" data-id="tl4-title">Lab Assistant — Electronic Circuits UMY</div><div class="tl-desc" data-id="tl4-desc">Membimbing mahasiswa dalam sesi lab rangkaian analog dan digital, teknik pengukuran, dan troubleshooting.</div></div></div>
     </div>
     <div class="tl-item">
-      <div class="tl-left">
-        <div class="tl-card">
-          <div class="tl-date">2024</div>
-          <div class="tl-title">ON-MIPA Fisika — Regional & KRTI Regional</div>
-          <div class="tl-desc">Berpartisipasi di dua kompetisi besar: Olimpiade MIPA bidang Fisika dan KRTI Technology Development Division tingkat regional.</div>
-        </div>
-      </div>
+      <div class="tl-left"><div class="tl-card"><div class="tl-date">2024</div><div class="tl-title" data-id="tl5-title">ON-MIPA Fisika — Regional &amp; KRTI Regional</div><div class="tl-desc" data-id="tl5-desc">Berpartisipasi di dua kompetisi besar: Olimpiade MIPA bidang Fisika dan KRTI Technology Development Division tingkat regional.</div></div></div>
       <div><div class="tl-dot"></div></div>
       <div class="tl-empty"></div>
     </div>
     <div class="tl-item">
       <div class="tl-empty"></div>
       <div><div class="tl-dot"></div></div>
-      <div class="tl-right">
-        <div class="tl-card">
-          <div class="tl-date">Agt 2023</div>
-          <div class="tl-title">Bergabung di Microcontroller & Robotic Club</div>
-          <div class="tl-desc">Awal perjalanan sebagai hardware & embedded systems developer, memulai riset UAV flight controller yang menjadi skripsi dan tiket ke KRTI Nasional.</div>
-        </div>
-      </div>
+      <div class="tl-right"><div class="tl-card"><div class="tl-date">Agt 2023</div><div class="tl-title" data-id="tl6-title">Bergabung di Microcontroller &amp; Robotic Club</div><div class="tl-desc" data-id="tl6-desc">Awal perjalanan sebagai hardware &amp; embedded systems developer, memulai riset UAV flight controller yang menjadi skripsi dan tiket ke KRTI Nasional.</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery">
-  <p class="section-label reveal">Gallery</p>
-  <h2 class="section-title reveal" style="color:var(--white);">Momen dalam<br><em>Gambar</em></h2>
-  <p class="section-sub reveal">Dokumentasi perjalanan dan kegiatan menarik.</p>
+  <p class="section-label reveal" data-id="gal-label">Gallery</p>
+  <h2 class="section-title reveal" style="color:var(--white);" data-id="gal-title">Momen dalam<br><em>Gambar</em></h2>
+  <p class="section-sub reveal" data-id="gal-sub">Dokumentasi perjalanan dan kegiatan menarik.</p>
   <div class="gallery-tabs reveal">
-    <button class="gallery-tab active" onclick="filterGallery('all', this)">Semua</button>
-    <button class="gallery-tab" onclick="filterGallery('lomba', this)">Lomba</button>
-    <button class="gallery-tab" onclick="filterGallery('org', this)">Organisasi</button>
-    <button class="gallery-tab" onclick="filterGallery('kegiatan', this)">Kegiatan</button>
+    <button class="gallery-tab active" onclick="filterGallery('all', this)" data-id="tab-all">Semua</button>
+    <button class="gallery-tab" onclick="filterGallery('lomba', this)" data-id="tab-lomba">Lomba</button>
+    <button class="gallery-tab" onclick="filterGallery('org', this)" data-id="tab-org">Organisasi</button>
+    <button class="gallery-tab" onclick="filterGallery('kegiatan', this)" data-id="tab-act">Kegiatan</button>
   </div>
   <div class="gallery-grid reveal" id="galleryGrid">
-    <!-- Ganti src="" dengan path foto kamu -->
-    <div class="gallery-item" data-cat="kegiatan">
-      <img src="IMG20251231115511.jpg" alt="Asisten Lab" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">Lab Assistant — Electronic Circuits UMY</span></div>
-    </div>
-    <div class="gallery-item" data-cat="org">
-      <img src="Screenshot070231.png" alt="Foto Tim KRTI" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">Tim KRTI — Microcontroller & Robotics Club UMY</span></div>
-    </div>
-    <div class="gallery-item" data-cat="lomba">
-      <img src="WhatsAppImage142921.jpeg" alt="UAV Development" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">UAV Flight Controller — Pengembangan & Testing</span></div>
-    </div>
-    <div class="gallery-item" data-cat="lomba">
-      <img src="Group_65.png" alt="Custom PCB Design" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">Custom PCB — Carrier Board Raspberry Pi & Teensy 4.0</span></div>
-    </div>
-    <div class="gallery-item" data-cat="lomba">
-      <img src="Screenshot_150252.png" alt="PCB Layout KiCad" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">PCB Layout — KiCad Design 2-Layer</span></div>
-    </div>
-
-    <div class="gallery-item" data-cat="org">
-      <img src="Screenshot111505.png" alt="BEM KMFT" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">BEM KMFT — Kegiatan Organisasi</span></div>
-    </div>
-    <div class="gallery-item" data-cat="org">
-      <img src="Screenshot111519.png" alt="Sekretaris Dinas Sosker BEM" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">Sekretaris — Dinas Sosial Kerja Sama BEM KMFT</span></div>
-    </div>
-    <div class="gallery-item" data-cat="kegiatan">
-      <img src="Screenshot_111557.png" alt="Teknik Merasa" style="width:100%;height:100%;object-fit:cover;">
-      <div class="gallery-overlay"><span class="gallery-caption">KKN Teknik Merasa — Pengabdian Masyarakat</span></div>
-    </div>
+    <div class="gallery-item" data-cat="kegiatan"><img src="IMG20251231115511.jpg" alt="Asisten Lab"><div class="gallery-overlay"><span class="gallery-caption">Lab Assistant — Electronic Circuits UMY</span></div></div>
+    <div class="gallery-item" data-cat="org"><img src="Screenshot070231.png" alt="Foto Tim KRTI"><div class="gallery-overlay"><span class="gallery-caption">Tim KRTI — Microcontroller &amp; Robotics Club UMY</span></div></div>
+    <div class="gallery-item" data-cat="lomba"><img src="WhatsAppImage142921.jpeg" alt="UAV Development"><div class="gallery-overlay"><span class="gallery-caption">UAV Flight Controller — Pengembangan &amp; Testing</span></div></div>
+    <div class="gallery-item" data-cat="lomba"><img src="Group_65.png" alt="Custom PCB Design"><div class="gallery-overlay"><span class="gallery-caption">Custom PCB — Carrier Board Raspberry Pi &amp; Teensy 4.0</span></div></div>
+    <div class="gallery-item" data-cat="lomba"><img src="Screenshot_150252.png" alt="PCB Layout KiCad"><div class="gallery-overlay"><span class="gallery-caption">PCB Layout — KiCad Design 2-Layer</span></div></div>
+    <div class="gallery-item" data-cat="org"><img src="Screenshot111505.png" alt="BEM KMFT"><div class="gallery-overlay"><span class="gallery-caption">BEM KMFT — Kegiatan Organisasi</span></div></div>
+    <div class="gallery-item" data-cat="org"><img src="Screenshot111519.png" alt="Sekretaris Dinas Sosker BEM"><div class="gallery-overlay"><span class="gallery-caption">Sekretaris — Dinas Sosial Kerja Sama BEM KMFT</span></div></div>
+    <div class="gallery-item" data-cat="kegiatan"><img src="Screenshot_111557.png" alt="Teknik Merasa"><div class="gallery-overlay"><span class="gallery-caption">KKN Teknik Merasa — Pengabdian Masyarakat</span></div></div>
   </div>
 </section>
 
 <!-- VIDEO -->
 <section id="videos">
-  <p class="section-label reveal">Videos</p>
-  <h2 class="section-title reveal">Dokumentasi<br><em>Video</em></h2>
-  <p class="section-sub reveal">Momen terbaik yang terekam kamera.</p>
+  <p class="section-label reveal" data-id="vid-label">Videos</p>
+  <h2 class="section-title reveal" data-id="vid-title">Dokumentasi<br><em>Video</em></h2>
+  <p class="section-sub reveal" data-id="vid-sub">Momen terbaik yang terekam kamera.</p>
   <div class="video-grid reveal">
     <div class="video-card">
       <div class="video-badge">UAV Project</div>
       <div class="video-thumb" style="padding:0;overflow:hidden;">
-        <iframe src="https://drive.google.com/file/d/1e9ON88-brG5PsHaQVA7ioVWzwcuh1DNH/preview"
-          style="width:100%;height:100%;min-height:200px;border:none;"
-          allow="autoplay" allowfullscreen>
-        </iframe>
+        <iframe src="https://drive.google.com/file/d/1e9ON88-brG5PsHaQVA7ioVWzwcuh1DNH/preview" style="width:100%;height:100%;min-height:200px;border:none;" allow="autoplay" allowfullscreen></iframe>
       </div>
-      <div class="video-info">
-        <div class="video-title">Tim AL-MUBAROK TD — KRTI 2025</div>
-        <div class="video-desc">Dokumentasi tim Technology Development UMY di KRTI 2025.</div>
-      </div>
+      <div class="video-info"><div class="video-title" data-id="v1-title">Tim AL-MUBAROK TD — KRTI 2025</div><div class="video-desc" data-id="v1-desc">Dokumentasi tim Technology Development UMY di KRTI 2025.</div></div>
     </div>
     <div class="video-card">
       <div class="video-badge">KRTI Nasional</div>
       <div class="video-thumb" style="padding:0;overflow:hidden;aspect-ratio:9/16;min-height:360px;">
-        <iframe src="https://drive.google.com/file/d/19DPzytbi_7DSYJoXYc7qp-pqii2ICidp/preview"
-          style="width:100%;height:100%;border:none;"
-          allow="autoplay" allowfullscreen>
-        </iframe>
+        <iframe src="https://drive.google.com/file/d/19DPzytbi_7DSYJoXYc7qp-pqii2ICidp/preview" style="width:100%;height:100%;border:none;" allow="autoplay" allowfullscreen></iframe>
       </div>
-      <div class="video-info">
-        <div class="video-title">Tampil di KRTI Nasional 2025</div>
-        <div class="video-desc">Momen penampilan UAV di panggung kompetisi robot terbang nasional.</div>
-      </div>
+      <div class="video-info"><div class="video-title" data-id="v2-title">Tampil di KRTI Nasional 2025</div><div class="video-desc" data-id="v2-desc">Momen penampilan UAV di panggung kompetisi robot terbang nasional.</div></div>
     </div>
     <div class="video-card">
       <div class="video-badge">Tim KRTI</div>
@@ -1181,19 +525,16 @@
           <source src="VID_20251122_WA0055.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="video-info">
-        <div class="video-title">Uji Terbang UAV</div>
-        <div class="video-desc">Uji coba terbang drone dengan flight controller buatan sendiri.</div>
-      </div>
+      <div class="video-info"><div class="video-title" data-id="v3-title">Uji Terbang UAV</div><div class="video-desc" data-id="v3-desc">Uji coba terbang drone dengan flight controller buatan sendiri.</div></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <p class="section-label reveal">Get In Touch</p>
-  <h2 class="section-title reveal" style="max-width:600px;margin:0 auto;">Mari<br><em>Terhubung</em></h2>
- <a class="contact-email reveal" href="mailto:srwhyn5124@gmail.com">srwhyn5124@gmail.com</a>
+  <p class="section-label reveal" data-id="con-label">Get In Touch</p>
+  <h2 class="section-title reveal" style="max-width:600px;margin:0 auto;" data-id="con-title">Mari<br><em>Terhubung</em></h2>
+  <a class="contact-email reveal" href="mailto:srwhyn5124@gmail.com">srwhyn5124@gmail.com</a>
   <div class="contact-socials reveal">
     <a href="https://www.linkedin.com/in/sri-wahyuni-44844a2bb" target="_blank" class="social-btn">LinkedIn</a>
     <a href="https://wa.me/6282237314739?text=Halo%20Sri%2C%20saya%20tertarik%20dengan%20portofolio%20kamu!" target="_blank" class="social-btn">WhatsApp</a>
@@ -1203,12 +544,12 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Sri Wahyuni. All rights reserved.</p>
+  <p data-id="footer-copy">© 2026 Sri Wahyuni. All rights reserved.</p>
   <div class="footer-logo">Sri<span>.</span>Wahyuni</div>
   <p>Teknik Elektro · UMY ⚡</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1223,8 +564,7 @@
 
   // Nav scroll effect
   window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.boxShadow =
-      window.scrollY > 50 ? '0 4px 30px rgba(10,22,40,.15)' : 'none';
+    document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(10,22,40,.15)' : 'none';
   });
 
   // Gallery filter
@@ -1243,11 +583,11 @@
   function toggleSertif() {
     const grid = document.getElementById('sertif-grid');
     const arrow = document.getElementById('sertif-arrow');
-    const btn = document.getElementById('sertif-btn');
+    const icon = document.getElementById('sertif-icon');
     const isOpen = grid.style.display === 'grid';
     grid.style.display = isOpen ? 'none' : 'grid';
     arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-    btn.querySelector('span:first-child').textContent = isOpen ? '📋' : '📂';
+    icon.textContent = isOpen ? '📋' : '📂';
   }
 
   // Lightbox
@@ -1261,6 +601,133 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
+  // ─── LANGUAGE TOGGLE ───
+  let currentLang = 'id';
+
+  const t = {
+    'nav-about':    { id: 'About',        en: 'About' },
+    'nav-projects': { id: 'Projects',     en: 'Projects' },
+    'nav-lomba':    { id: 'Lomba',        en: 'Achievements' },
+    'nav-org':      { id: 'Organisasi',   en: 'Organizations' },
+    'nav-kegiatan': { id: 'Kegiatan',     en: 'Activities' },
+    'nav-gallery':  { id: 'Gallery',      en: 'Gallery' },
+    'nav-contact':  { id: 'Contact',      en: 'Contact' },
+
+    'hero-tag':   { id: 'Electrical Engineering · UMY · GPA 3.91', en: 'Electrical Engineering · UMY · GPA 3.91' },
+    'hero-name':  { id: 'Halo, Aku<em>Sri Wahyuni</em>', en: 'Hello, I\'m<em>Sri Wahyuni</em>' },
+    'hero-role':  { id: 'Embedded Systems · PCB Design · Automation & Control', en: 'Embedded Systems · PCB Design · Automation & Control' },
+    'hero-desc':  { id: 'Electrical Engineering graduate (UMY, 2026) dengan GPA 3.91/4.00. Spesialisasi di embedded systems, PCB design, dan microcontroller-based automation. KRTI National Finalist 2025 · Pernah memimpin tim R&D 10 orang.', en: 'Electrical Engineering graduate (UMY, 2026) with GPA 3.91/4.00. Specializing in embedded systems, PCB design, and microcontroller-based automation. KRTI National Finalist 2025 · Led an R&D team of 10 people.' },
+    'btn-projects': { id: 'Lihat Projects', en: 'View Projects' },
+    'btn-contact':  { id: 'Hubungi Aku',    en: 'Contact Me' },
+    'stat-lomba':   { id: 'Lomba Nasional', en: 'National Competitions' },
+    'stat-team':    { id: 'Tim R&D',        en: 'R&D Team' },
+
+    'about-label': { id: 'Tentang Aku', en: 'About Me' },
+    'about-title': { id: 'Siapa aku<br><em>sebenarnya?</em>', en: 'Who am<br><em>I really?</em>' },
+    'about-sub':   { id: 'Sedikit cerita tentang perjalananku, passion, dan hal-hal yang aku perjuangkan.', en: 'A little story about my journey, passion, and the things I stand for.' },
+    'about-p1':    { id: 'Halo! Aku Sri Wahyuni, fresh graduate Teknik Elektro dari Universitas Muhammadiyah Yogyakarta (2026) dengan GPA 3.91/4.00, lulus dalam 3 tahun 4 bulan secara akselerasi.', en: 'Hello! I am Sri Wahyuni, a fresh graduate in Electrical Engineering from Universitas Muhammadiyah Yogyakarta (2026) with a GPA of 3.91/4.00, graduating in an accelerated 3 years and 4 months.' },
+    'about-p2':    { id: 'Aku spesialisasi di embedded systems, PCB design (KiCad/EAGLE), firmware C/C++ untuk sistem berbasis microcontroller, serta automation & control system termasuk dasar pemrograman PLC dan kontrol logika industri. Pernah memimpin tim R&D 10 orang dalam pengembangan modular UAV Flight Controller yang menjadi Finalis Nasional KRTI 2025 — dan menjadi skripsi sarjanaku.', en: 'I specialize in embedded systems, PCB design (KiCad/EAGLE), C/C++ firmware for microcontroller-based systems, and automation & control including PLC programming and industrial control logic. Led a 10-person R&D team developing a modular UAV Flight Controller — KRTI 2025 National Finalist and my undergraduate thesis.' },
+    'about-p3':    { id: 'Ketertarikanku di bidang otomasi industri juga didukung sertifikasi resmi sebagai <strong style="color:var(--accent)">Teknisi Otomasi Industri Senior — BNSP</strong>, yang mencerminkan komitmenku untuk terus berkembang di dunia engineering yang nyata.', en: 'My interest in industrial automation is supported by official certification as a <strong style="color:var(--accent)">Senior Industrial Automation Technician — BNSP</strong>, reflecting my commitment to grow in the real engineering world.' },
+    'stat-gpa':    { id: 'GPA / 4.00',           en: 'GPA / 4.00' },
+    'stat-grad':   { id: 'Lulus Akselerasi',      en: 'Accelerated Graduate' },
+    'stat-rd':     { id: 'Anggota Tim R&D',       en: 'R&D Team Members' },
+    'stat-comp':   { id: 'Kompetisi Nasional',    en: 'National Competitions' },
+
+    'proj-label':  { id: 'Portfolio', en: 'Portfolio' },
+    'proj-title':  { id: 'Project yang<br><em>pernah kubuat</em>', en: "Projects I've<br><em>Built</em>" },
+    'proj-sub':    { id: 'Dari ide jadi kenyataan.<br>Setiap proyek punya ceritanya sendiri.', en: 'From ideas to reality.<br>Every project has its own story.' },
+    'p1-title':    { id: 'Modular UAV Flight Controller System', en: 'Modular UAV Flight Controller System' },
+    'p1-desc':     { id: 'Pengembangan sistem kendali UAV berbasis dual-processor: Teensy 4.0 untuk real-time control dan Raspberry Pi 4B untuk high-level processing, terintegrasi dalam custom 2-layer PCB. Menjadi skripsi sarjana dan meraih <strong style="color:var(--accent)">KRTI National Finalist 2025</strong>.', en: 'Development of a dual-processor UAV control system: Teensy 4.0 for real-time control and Raspberry Pi 4B for high-level processing, integrated on a custom 2-layer PCB. Became undergraduate thesis and achieved <strong style="color:var(--accent)">KRTI National Finalist 2025</strong>.' },
+    'p2-title':    { id: 'Custom 2-Layer PCB Design', en: 'Custom 2-Layer PCB Design' },
+    'p2-desc':     { id: 'Desain PCB dual-fungsi sebagai flight controller sekaligus Raspberry Pi carrier board, mencakup power routing, grounding layout, dan signal routing untuk meminimalkan noise.', en: 'Dual-function PCB design as both a flight controller and Raspberry Pi carrier board, covering power routing, grounding layout, and signal routing to minimize noise.' },
+    'p3-title':    { id: 'Multi-Sensor Integration Firmware', en: 'Multi-Sensor Integration Firmware' },
+    'p3-desc':     { id: 'Firmware real-time di Teensy 4.0 untuk stabilisasi UAV, mengintegrasikan IMU (MPU6050/9250), GPS, BMP280, dan ToF sensor via I2C & UART.', en: 'Real-time firmware on Teensy 4.0 for UAV stabilization, integrating IMU (MPU6050/9250), GPS, BMP280, and ToF sensors via I2C & UART.' },
+    'p4-title':    { id: 'MEP — PT.KAI DAOP 6', en: 'MEP Internship — PT.KAI DAOP 6' },
+    'p4-desc':     { id: 'Terlibat langsung dalam kegiatan MEP di lingkungan operasional perkeretaapian. Tugas meliputi: penyusunan RAB pemasangan PJUTS, pengecekan sistem grounding persinyalan, serta perawatan preventif lift, eskalator, dan genset stasiun.', en: 'Directly involved in MEP activities within railway operational environments. Tasks included: preparing cost estimates for solar street lighting installation, checking signal grounding systems, and preventive maintenance of elevators, escalators, and station generators.' },
+    'p5-title':    { id: 'Lab Assistant — Electronic Circuits', en: 'Lab Assistant — Electronic Circuits' },
+    'p5-desc':     { id: 'Memfasilitasi sesi lab rangkaian analog & digital, membimbing mahasiswa dalam pengukuran dan troubleshooting rangkaian di Universitas Muhammadiyah Yogyakarta.', en: 'Facilitated analog & digital circuit lab sessions, guiding students in measurements and circuit troubleshooting at Universitas Muhammadiyah Yogyakarta.' },
+
+    'lomba-label': { id: 'Achievements', en: 'Achievements' },
+    'lomba-title': { id: 'Lomba &amp;<br><em>Penghargaan</em>', en: 'Competitions &amp;<br><em>Awards</em>' },
+    'lomba-sub':   { id: 'Kompetisi yang pernah aku ikuti dan pencapaian yang membanggakan.', en: 'Competitions I have joined and achievements I am proud of.' },
+    'award-finalist': { id: 'Finalis Nasional', en: 'National Finalist' },
+    'award-peserta':  { id: 'Peserta Wilayah',  en: 'Regional Participant' },
+    'ice3is-org':     { id: 'Operator Konferensi Internasional', en: 'International Conference Operator' },
+    'bnsp-org':       { id: 'Badan Nasional Sertifikasi Profesi · Competency Assessment Completed', en: 'National Professional Certification Agency · Competency Assessment Completed' },
+    'award-sertif':   { id: 'Sertifikasi', en: 'Certification' },
+    'sertif-btn-text':{ id: 'Lihat Sertifikat', en: 'View Certificates' },
+    's1-label': { id: 'Operator 5th ICE3IS — Konferensi Internasional', en: 'Operator 5th ICE3IS — International Conference' },
+    's2-label': { id: '6th KIBO Robot Programming Challenge — Nasional', en: '6th KIBO Robot Programming Challenge — National' },
+    's3-label': { id: 'KRTI 2024 — Tingkat Wilayah', en: 'KRTI 2024 — Regional Level' },
+    's4-label': { id: 'ON-MIPA-PT Fisika 2024 — Tingkat Wilayah', en: 'ON-MIPA-PT Physics 2024 — Regional Level' },
+    's5-label': { id: 'KRTI 2025 — Finalis Nasional Technology Development', en: 'KRTI 2025 — National Finalist Technology Development' },
+    's6-label': { id: 'Surat Keterangan Magang — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)', en: 'Internship Certificate — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)' },
+
+    'org-label': { id: 'Organizations', en: 'Organizations' },
+    'org-title': { id: 'Organisasi &amp;<br><em>Kepanitiaan</em>', en: 'Organizations &amp;<br><em>Committees</em>' },
+    'org-sub':   { id: 'Tempat aku belajar memimpin, berkolaborasi, dan berkontribusi.', en: 'Where I learned to lead, collaborate, and contribute.' },
+    'org1-desc': { id: 'Memimpin tim engineering di kompetisi UAV tingkat nasional KRTI 2025. Mengelola delegasi tugas, kontrol timeline, koordinasi teknis, serta supervisi integrasi hardware-software antar divisi. Hasil: <strong>Finalis Nasional KRTI 2025</strong>.', en: 'Led the engineering team at the national UAV competition KRTI 2025. Managed task delegation, timeline control, technical coordination, and hardware-software integration across divisions. Result: <strong>KRTI 2025 National Finalist</strong>.' },
+    'org2-role': { id: 'Sekretaris Dinas Sosial Kerja Sama', en: 'Secretary of Social Affairs & Partnerships' },
+    'org2-desc': { id: 'Mengelola dokumentasi dan perencanaan administratif program sosial & kemitraan. Berkoordinasi dengan mitra eksternal dan komite internal, serta menyusun proposal dan laporan terstruktur.', en: 'Managed documentation and administrative planning for social & partnership programs. Coordinated with external partners and internal committees, and prepared structured proposals and reports.' },
+    'org3-name': { id: "Panitia Masa Ta'aruf Mahasiswa Teknik Elektro", en: 'Orientation Committee — Electrical Engineering Students' },
+    'org3-role': { id: 'Sekretaris — Orientasi Mahasiswa Baru', en: 'Secretary — New Student Orientation' },
+    'org3-desc': { id: 'Mengelola dokumentasi acara, penjadwalan, dan koordinasi antar divisi. Membantu pelaksanaan operasional agar program berjalan terstruktur dan tepat sasaran.', en: 'Managed event documentation, scheduling, and inter-division coordination. Supported operational execution to ensure the program ran in a structured and targeted manner.' },
+    'org4-name': { id: 'Program Pengabdian "Teknik Merasa" — Fakultas Teknik UMY', en: 'Community Service Program "Teknik Merasa" — Faculty of Engineering UMY' },
+    'org4-role': { id: 'Sekretaris — Program Pengabdian Masyarakat', en: 'Secretary — Community Service Program' },
+    'org4-desc': { id: 'Menangani dokumentasi program dan koordinasi internal. Membantu perencanaan dan pelaksanaan kegiatan pengabdian masyarakat yang dipimpin mahasiswa Fakultas Teknik.', en: 'Handled program documentation and internal coordination. Assisted in planning and executing community service activities led by Faculty of Engineering students.' },
+    'org5-role': { id: 'Intern — Mechanical, Electrical & Plumbing (MEP)', en: 'Intern — Mechanical, Electrical & Plumbing (MEP)' },
+    'org5-desc': { id: 'Membantu instalasi grounding sistem persinyalan kereta, mendukung pengujian perawatan preventif & pengujian kelistrikan operasional, serta berkontribusi dalam estimasi biaya proyek solar street lighting.', en: 'Assisted in grounding installation for train signaling systems, supported preventive maintenance testing & operational electrical testing, and contributed to cost estimation for solar street lighting projects.' },
+    'org6-role': { id: 'Laboratory Assistant — Electronic Circuits', en: 'Laboratory Assistant — Electronic Circuits' },
+    'org6-desc': { id: 'Membimbing mahasiswa dalam troubleshooting dan problem-solving terstruktur. Membantu manajemen sesi lab, memastikan kepatuhan prosedur, dan mendukung penjelasan teknis dalam perkuliahan.', en: 'Guided students in structured troubleshooting and problem-solving. Assisted in lab session management, ensured procedural compliance, and supported technical explanations in lectures.' },
+
+    'act-label': { id: 'Activities', en: 'Activities' },
+    'act-title': { id: 'Perjalanan &amp;<br><em>Kegiatan</em>', en: 'Journey &amp;<br><em>Activities</em>' },
+    'act-sub':   { id: 'Timeline aktivitas dan pengalamanku selama ini.', en: 'A timeline of my activities and experiences.' },
+    'tl1-title': { id: 'Sertifikasi BNSP — Industrial Automation Senior Technician', en: 'BNSP Certification — Industrial Automation Senior Technician' },
+    'tl1-desc':  { id: 'Menyelesaikan competency assessment sertifikasi profesi otomasi industri dari Badan Nasional Sertifikasi Profesi.', en: 'Completed the competency assessment for industrial automation professional certification from the National Professional Certification Agency.' },
+    'tl2-title': { id: 'R&D Team Lead — KRTI Nasional 2025', en: 'R&D Team Lead — KRTI National 2025' },
+    'tl2-desc':  { id: 'Memimpin 10 orang tim pengembangan UAV Flight Controller, membawa tim ke panggung Finalis Nasional KRTI 2025.', en: 'Led a 10-person UAV Flight Controller development team, bringing the team to the KRTI 2025 National Finalist stage.' },
+    'tl3-title': { id: 'Magang MEP — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)', en: 'MEP Internship — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)' },
+    'tl3-desc':  { id: 'Terlibat langsung dalam kegiatan Mechanical, Electrical & Plumbing di lingkungan operasional perkeretaapian. Tugas meliputi: penyusunan RAB pemasangan PJUTS, pengecekan sistem grounding persinyalan, serta perawatan preventif lift, eskalator, dan genset stasiun.', en: 'Directly involved in MEP activities in railway operations. Tasks included: preparing cost estimates for solar street lighting, checking signal grounding systems, and preventive maintenance of elevators, escalators, and station generators.' },
+    'tl4-title': { id: 'Lab Assistant — Electronic Circuits UMY', en: 'Lab Assistant — Electronic Circuits UMY' },
+    'tl4-desc':  { id: 'Membimbing mahasiswa dalam sesi lab rangkaian analog dan digital, teknik pengukuran, dan troubleshooting.', en: 'Guided students in analog and digital circuit lab sessions, measurement techniques, and troubleshooting.' },
+    'tl5-title': { id: 'ON-MIPA Fisika — Regional & KRTI Regional', en: 'ON-MIPA Physics — Regional & KRTI Regional' },
+    'tl5-desc':  { id: 'Berpartisipasi di dua kompetisi besar: Olimpiade MIPA bidang Fisika dan KRTI Technology Development Division tingkat regional.', en: 'Participated in two major competitions: the MIPA Science Olympiad in Physics and the KRTI Technology Development Division at regional level.' },
+    'tl6-title': { id: 'Bergabung di Microcontroller & Robotic Club', en: 'Joined Microcontroller & Robotic Club' },
+    'tl6-desc':  { id: 'Awal perjalanan sebagai hardware & embedded systems developer, memulai riset UAV flight controller yang menjadi skripsi dan tiket ke KRTI Nasional.', en: 'The beginning of the journey as a hardware & embedded systems developer, starting UAV flight controller research that became the undergraduate thesis and ticket to KRTI National.' },
+
+    'gal-label': { id: 'Gallery', en: 'Gallery' },
+    'gal-title': { id: 'Momen dalam<br><em>Gambar</em>', en: 'Moments in<br><em>Pictures</em>' },
+    'gal-sub':   { id: 'Dokumentasi perjalanan dan kegiatan menarik.', en: 'Documentation of my journey and activities.' },
+    'tab-all':   { id: 'Semua',       en: 'All' },
+    'tab-lomba': { id: 'Lomba',       en: 'Competitions' },
+    'tab-org':   { id: 'Organisasi',  en: 'Organizations' },
+    'tab-act':   { id: 'Kegiatan',    en: 'Activities' },
+
+    'vid-label': { id: 'Videos', en: 'Videos' },
+    'vid-title': { id: 'Dokumentasi<br><em>Video</em>', en: 'Video<br><em>Documentation</em>' },
+    'vid-sub':   { id: 'Momen terbaik yang terekam kamera.', en: 'The best moments captured on camera.' },
+    'v1-title':  { id: 'Tim AL-MUBAROK TD — KRTI 2025', en: 'AL-MUBAROK TD Team — KRTI 2025' },
+    'v1-desc':   { id: 'Dokumentasi tim Technology Development UMY di KRTI 2025.', en: 'Documentation of UMY Technology Development team at KRTI 2025.' },
+    'v2-title':  { id: 'Tampil di KRTI Nasional 2025', en: 'Performance at KRTI National 2025' },
+    'v2-desc':   { id: 'Momen penampilan UAV di panggung kompetisi robot terbang nasional.', en: 'UAV performance moment at the national flying robot competition stage.' },
+    'v3-title':  { id: 'Uji Terbang UAV', en: 'UAV Flight Test' },
+    'v3-desc':   { id: 'Uji coba terbang drone dengan flight controller buatan sendiri.', en: 'Drone flight test with a self-built flight controller.' },
+
+    'con-label': { id: 'Get In Touch', en: 'Get In Touch' },
+    'con-title': { id: 'Mari<br><em>Terhubung</em>', en: "Let's<br><em>Connect</em>" },
+    'footer-copy': { id: '© 2026 Sri Wahyuni. All rights reserved.', en: '© 2026 Sri Wahyuni. All rights reserved.' },
+  };
+
+  function toggleLang() {
+    currentLang = currentLang === 'id' ? 'en' : 'id';
+    document.getElementById('lang-btn').textContent = currentLang === 'id' ? '🌐 EN' : '🌐 ID';
+    Object.entries(t).forEach(([id, texts]) => {
+      const el = document.querySelector('[data-id="' + id + '"]');
+      if (el) el.innerHTML = texts[currentLang];
+    });
+  }
 </script>
 </body>
 </html>
