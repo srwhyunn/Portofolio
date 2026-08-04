@@ -194,6 +194,9 @@
   .gallery-item:nth-child(3n+1) { grid-column: span 2; aspect-ratio: 2/1; }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
   .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item.gallery-logo { background: var(--white); }
+  .gallery-item.gallery-logo img { object-fit: contain; padding: 2rem; transition: transform .4s; }
+  .gallery-item.gallery-logo:hover img { transform: scale(1.08); }
   .gallery-overlay { position: absolute; inset: 0; background: rgba(10,22,40,.7); display: flex; align-items: flex-end; padding: 1rem; opacity: 0; transition: opacity .3s; }
   .gallery-item:hover .gallery-overlay { opacity: 1; }
   .gallery-caption { font-size: .8rem; color: var(--white); font-weight: 500; }
@@ -452,7 +455,7 @@
   <div class="reveal">
     <div class="pub-card">
       <div class="pub-cover">
-        <img src="IEEE.png" alt="IEEE Xplore">
+        <div style="font-size:3rem;">📄</div>
       </div>
       <div class="pub-body">
         <div class="pub-index">
@@ -465,10 +468,7 @@
       </div>
     </div>
   </div>
-  <div style="display:flex;align-items:center;gap:1.2rem;margin-top:1.5rem;" class="reveal">
-    <img src="SCOPUS.png" alt="Scopus" style="height:34px;object-fit:contain;opacity:.85;">
-    <span style="font-size:.8rem;color:#556;" data-id="pub-scopus-note">Terindeks Scopus melalui prosiding konferensi internasional</span>
-  </div>
+  <p style="font-size:.8rem;color:#556;margin-top:1.2rem;" class="reveal" data-id="pub-scopus-note">Logo IEEE &amp; Scopus bisa dilihat lebih jelas di bagian Gallery ↓</p>
 </section>
 
 <!-- ORGANISASI -->
@@ -537,6 +537,7 @@
     <button class="gallery-tab" onclick="filterGallery('lomba', this)" data-id="tab-lomba">Lomba</button>
     <button class="gallery-tab" onclick="filterGallery('org', this)" data-id="tab-org">Organisasi</button>
     <button class="gallery-tab" onclick="filterGallery('kegiatan', this)" data-id="tab-act">Kegiatan</button>
+    <button class="gallery-tab" onclick="filterGallery('publikasi', this)" data-id="tab-pub">Publikasi</button>
   </div>
   <div class="gallery-grid reveal" id="galleryGrid">
     <div class="gallery-item" data-cat="kegiatan"><img src="IMG20251231115511.jpg" alt="Asisten Lab"><div class="gallery-overlay"><span class="gallery-caption">Lab Assistant — Electronic Circuits UMY</span></div></div>
@@ -547,6 +548,9 @@
     <div class="gallery-item" data-cat="org"><img src="Screenshot111505.png" alt="BEM KMFT"><div class="gallery-overlay"><span class="gallery-caption">BEM KMFT — Kegiatan Organisasi</span></div></div>
     <div class="gallery-item" data-cat="org"><img src="Screenshot111519.png" alt="Sekretaris Dinas Sosker BEM"><div class="gallery-overlay"><span class="gallery-caption">Sekretaris — Dinas Sosial Kerja Sama BEM KMFT</span></div></div>
     <div class="gallery-item" data-cat="kegiatan"><img src="Screenshot_111557.png" alt="Teknik Merasa"><div class="gallery-overlay"><span class="gallery-caption">KKN Teknik Merasa — Pengabdian Masyarakat</span></div></div>
+    <div class="gallery-item gallery-logo" data-cat="publikasi"><img src="IEEE.png" alt="IEEE Publication"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-ieee-cap">Publikasi Paper — IEEE Xplore 2026</span></div></div>
+    <div class="gallery-item gallery-logo" data-cat="publikasi"><img src="SCOPUS.png" alt="Scopus Indexed"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-scopus-cap">Terindeks Scopus — International Conference</span></div></div>
+    <div class="gallery-item gallery-logo" data-cat="publikasi"><img src="GUI.png" alt="GUI Project"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-gui-cap">GUI — Tampilan Antarmuka Sistem</span></div></div>
   </div>
 </section>
 
@@ -617,6 +621,14 @@
   // Nav scroll effect
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(10,22,40,.15)' : 'none';
+  });
+
+  // Gallery click-to-zoom
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (img) openLightbox(img.src);
+    });
   });
 
   // Gallery filter
@@ -724,7 +736,7 @@
     'pub1-title': { id: 'Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor', en: 'Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor' },
     'pub1-meta': { id: 'IEEE Publication · 2026', en: 'IEEE Publication · 2026' },
     'pub1-link': { id: 'Lihat Paper di IEEE Xplore', en: 'View Paper on IEEE Xplore' },
-    'pub-scopus-note': { id: 'Terindeks Scopus melalui prosiding konferensi internasional', en: 'Scopus indexed via international conference proceedings' },
+    'pub-scopus-note': { id: 'Logo IEEE & Scopus bisa dilihat lebih jelas di bagian Gallery ↓', en: 'IEEE & Scopus logos can be viewed more clearly in the Gallery section ↓' },
 
     'org-label': { id: 'Organizations', en: 'Organizations' },
     'org-title': { id: 'Organisasi &amp;<br><em>Kepanitiaan</em>', en: 'Organizations &amp;<br><em>Committees</em>' },
@@ -766,6 +778,10 @@
     'tab-lomba': { id: 'Lomba',       en: 'Competitions' },
     'tab-org':   { id: 'Organisasi',  en: 'Organizations' },
     'tab-act':   { id: 'Kegiatan',    en: 'Activities' },
+    'tab-pub':   { id: 'Publikasi',   en: 'Publications' },
+    'gal-ieee-cap':   { id: 'Publikasi Paper — IEEE Xplore 2026', en: 'Published Paper — IEEE Xplore 2026' },
+    'gal-scopus-cap': { id: 'Terindeks Scopus — International Conference', en: 'Scopus Indexed — International Conference' },
+    'gal-gui-cap':    { id: 'GUI — Tampilan Antarmuka Sistem', en: 'GUI — System Interface Display' },
 
     'vid-label': { id: 'Videos', en: 'Videos' },
     'vid-title': { id: 'Dokumentasi<br><em>Video</em>', en: 'Video<br><em>Documentation</em>' },
