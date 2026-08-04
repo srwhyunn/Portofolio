@@ -136,6 +136,27 @@
   .lomba-award { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
   .lomba-year { font-size: .8rem; color: var(--text-muted); margin-top: .2rem; }
 
+  /* PUBLICATIONS */
+  #publications { background: var(--cream); }
+  .pub-card {
+    background: var(--navy); display: grid; grid-template-columns: 260px 1fr; gap: 0;
+    border: 1px solid var(--border); overflow: hidden; margin-bottom: 1.5px;
+  }
+  .pub-cover {
+    background: var(--navy-mid); display: flex; align-items: center; justify-content: center;
+    padding: 2rem; border-right: 1px solid var(--border); position: relative;
+  }
+  .pub-cover img { max-width: 100%; max-height: 110px; object-fit: contain; }
+  .pub-body { padding: 2.2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .pub-index { display: flex; gap: .6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .pub-badge { padding: .3rem .9rem; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; border: 1px solid var(--border); color: var(--accent); }
+  .pub-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: .8rem; }
+  .pub-meta { font-size: .85rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.6; }
+  .pub-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity .3s; width: fit-content; }
+  .pub-link:hover { opacity: .7; }
+  .pub-link::after { content: '→'; transition: transform .3s; }
+  .pub-link:hover::after { transform: translateX(3px); }
+
   /* ORGANISASI */
   #organisasi { background: var(--white); }
   .org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--navy); margin-top: 3rem; }
@@ -231,6 +252,8 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-item:nth-child(3n+1) { grid-column: span 1; aspect-ratio: 1; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .pub-card { grid-template-columns: 1fr; }
+    .pub-cover { border-right: none; border-bottom: 1px solid var(--border); padding: 1.5rem; }
   }
   @media (max-width: 720px) {
     .projects-grid { grid-template-columns: 1fr; }
@@ -266,6 +289,7 @@
     <li><a href="#about" data-id="nav-about">About</a></li>
     <li><a href="#projects" data-id="nav-projects">Projects</a></li>
     <li><a href="#lomba" data-id="nav-lomba">Lomba</a></li>
+    <li><a href="#publications" data-id="nav-publications">Publications</a></li>
     <li><a href="#organisasi" data-id="nav-org">Organisasi</a></li>
     <li><a href="#kegiatan" data-id="nav-kegiatan">Kegiatan</a></li>
     <li><a href="#gallery" data-id="nav-gallery">Gallery</a></li>
@@ -417,6 +441,33 @@
   <!-- LIGHTBOX -->
   <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;cursor:zoom-out;">
     <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;">
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <p class="section-label reveal" data-id="pub-label">Publications</p>
+  <h2 class="section-title reveal" data-id="pub-title">Publikasi<br><em>Ilmiah</em></h2>
+  <p class="section-sub reveal" data-id="pub-sub">Karya ilmiah yang telah dipublikasikan pada jurnal/konferensi terindeks internasional.</p>
+  <div class="reveal">
+    <div class="pub-card">
+      <div class="pub-cover">
+        <img src="IEEE.png" alt="IEEE Xplore">
+      </div>
+      <div class="pub-body">
+        <div class="pub-index">
+          <span class="pub-badge">IEEE Xplore</span>
+          <span class="pub-badge" data-id="pub-badge-scopus">Scopus Indexed</span>
+        </div>
+        <h3 class="pub-title" data-id="pub1-title">Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor</h3>
+        <p class="pub-meta" data-id="pub1-meta">IEEE Publication · 2026</p>
+        <a href="https://ieeexplore.ieee.org/abstract/document/11280889/" target="_blank" class="pub-link" data-id="pub1-link">Lihat Paper di IEEE Xplore</a>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1.2rem;margin-top:1.5rem;" class="reveal">
+    <img src="SCOPUS.png" alt="Scopus" style="height:34px;object-fit:contain;opacity:.85;">
+    <span style="font-size:.8rem;color:#556;" data-id="pub-scopus-note">Terindeks Scopus melalui prosiding konferensi internasional</span>
   </div>
 </section>
 
@@ -610,6 +661,7 @@
     'nav-about':    { id: 'About',        en: 'About' },
     'nav-projects': { id: 'Projects',     en: 'Projects' },
     'nav-lomba':    { id: 'Lomba',        en: 'Achievements' },
+    'nav-publications': { id: 'Publications', en: 'Publications' },
     'nav-org':      { id: 'Organisasi',   en: 'Organizations' },
     'nav-kegiatan': { id: 'Kegiatan',     en: 'Activities' },
     'nav-gallery':  { id: 'Gallery',      en: 'Gallery' },
@@ -664,6 +716,15 @@
     's4-label': { id: 'ON-MIPA-PT Fisika 2024 — Tingkat Wilayah', en: 'ON-MIPA-PT Physics 2024 — Regional Level' },
     's5-label': { id: 'KRTI 2025 — Finalis Nasional Technology Development', en: 'KRTI 2025 — National Finalist Technology Development' },
     's6-label': { id: 'Surat Keterangan Magang — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)', en: 'Internship Certificate — PT Kereta Api Indonesia (DAOP 6 Yogyakarta)' },
+
+    'pub-label': { id: 'Publications', en: 'Publications' },
+    'pub-title': { id: 'Publikasi<br><em>Ilmiah</em>', en: 'Scientific<br><em>Publications</em>' },
+    'pub-sub':   { id: 'Karya ilmiah yang telah dipublikasikan pada jurnal/konferensi terindeks internasional.', en: 'Scientific work published in internationally indexed journals/conferences.' },
+    'pub-badge-scopus': { id: 'Scopus Indexed', en: 'Scopus Indexed' },
+    'pub1-title': { id: 'Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor', en: 'Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor' },
+    'pub1-meta': { id: 'IEEE Publication · 2026', en: 'IEEE Publication · 2026' },
+    'pub1-link': { id: 'Lihat Paper di IEEE Xplore', en: 'View Paper on IEEE Xplore' },
+    'pub-scopus-note': { id: 'Terindeks Scopus melalui prosiding konferensi internasional', en: 'Scopus indexed via international conference proceedings' },
 
     'org-label': { id: 'Organizations', en: 'Organizations' },
     'org-title': { id: 'Organisasi &amp;<br><em>Kepanitiaan</em>', en: 'Organizations &amp;<br><em>Committees</em>' },
@@ -732,4 +793,3 @@
 </script>
 </body>
 </html>
-
