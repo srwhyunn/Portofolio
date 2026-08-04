@@ -139,16 +139,11 @@
   /* PUBLICATIONS */
   #publications { background: var(--cream); }
   .pub-card {
-    background: var(--navy); display: grid; grid-template-columns: 260px 1fr; gap: 0;
+    background: var(--navy); padding: 2.2rem 2.5rem;
     border: 1px solid var(--border); overflow: hidden; margin-bottom: 1.5px;
+    text-align: left;
   }
-  .pub-cover {
-    background: var(--navy-mid); display: flex; align-items: center; justify-content: center;
-    padding: 2rem; border-right: 1px solid var(--border); position: relative;
-  }
-  .pub-cover img { max-width: 100%; max-height: 110px; object-fit: contain; }
-  .pub-body { padding: 2.2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-  .pub-index { display: flex; gap: .6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .pub-index { display: flex; gap: .6rem; margin-bottom: 1rem; flex-wrap: wrap; justify-content: flex-start; }
   .pub-badge { padding: .3rem .9rem; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; border: 1px solid var(--border); color: var(--accent); }
   .pub-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: .8rem; }
   .pub-meta { font-size: .85rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.6; }
@@ -255,8 +250,7 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-item:nth-child(3n+1) { grid-column: span 1; aspect-ratio: 1; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
-    .pub-card { grid-template-columns: 1fr; }
-    .pub-cover { border-right: none; border-bottom: 1px solid var(--border); padding: 1.5rem; }
+    .pub-card { padding: 1.75rem 1.5rem; }
   }
   @media (max-width: 720px) {
     .projects-grid { grid-template-columns: 1fr; }
@@ -454,18 +448,13 @@
   <p class="section-sub reveal" data-id="pub-sub">Karya ilmiah yang telah dipublikasikan pada jurnal/konferensi terindeks internasional.</p>
   <div class="reveal">
     <div class="pub-card">
-      <div class="pub-cover">
-        <div style="font-size:3rem;">📄</div>
+      <div class="pub-index">
+        <span class="pub-badge">IEEE Xplore</span>
+        <span class="pub-badge" data-id="pub-badge-scopus">Scopus Indexed</span>
       </div>
-      <div class="pub-body">
-        <div class="pub-index">
-          <span class="pub-badge">IEEE Xplore</span>
-          <span class="pub-badge" data-id="pub-badge-scopus">Scopus Indexed</span>
-        </div>
-        <h3 class="pub-title" data-id="pub1-title">Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor</h3>
-        <p class="pub-meta" data-id="pub1-meta">IEEE Publication · 2026</p>
-        <a href="https://ieeexplore.ieee.org/abstract/document/11280889/" target="_blank" class="pub-link" data-id="pub1-link">Lihat Paper di IEEE Xplore</a>
-      </div>
+      <h3 class="pub-title" data-id="pub1-title">Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor</h3>
+      <p class="pub-meta" data-id="pub1-meta">IEEE Publication · 2026</p>
+      <a href="https://ieeexplore.ieee.org/abstract/document/11280889/" target="_blank" class="pub-link" data-id="pub1-link">Lihat Paper di IEEE Xplore</a>
     </div>
   </div>
   <p style="font-size:.8rem;color:#556;margin-top:1.2rem;" class="reveal" data-id="pub-scopus-note">Logo IEEE &amp; Scopus bisa dilihat lebih jelas di bagian Gallery ↓</p>
@@ -550,7 +539,7 @@
     <div class="gallery-item" data-cat="kegiatan"><img src="Screenshot_111557.png" alt="Teknik Merasa"><div class="gallery-overlay"><span class="gallery-caption">KKN Teknik Merasa — Pengabdian Masyarakat</span></div></div>
     <div class="gallery-item gallery-logo" data-cat="publikasi"><img src="IEEE.png" alt="IEEE Publication"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-ieee-cap">Publikasi Paper — IEEE Xplore 2026</span></div></div>
     <div class="gallery-item gallery-logo" data-cat="publikasi"><img src="SCOPUS.png" alt="Scopus Indexed"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-scopus-cap">Terindeks Scopus — International Conference</span></div></div>
-    <div class="gallery-item gallery-logo" data-cat="publikasi"><img src="GUI.png" alt="GUI Project"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-gui-cap">GUI — Tampilan Antarmuka Sistem</span></div></div>
+    <div class="gallery-item gallery-logo" data-cat="lomba publikasi"><img src="GUI.png" alt="GUI Project"><div class="gallery-overlay"><span class="gallery-caption" data-id="gal-gui-cap">GUI — Tampilan Antarmuka Sistem</span></div></div>
   </div>
 </section>
 
@@ -636,7 +625,7 @@
     document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.gallery-item').forEach(item => {
-      const show = cat === 'all' || item.dataset.cat === cat;
+      const show = cat === 'all' || item.dataset.cat.split(' ').includes(cat);
       item.style.opacity = show ? '1' : '0.2';
       item.style.transform = show ? 'scale(1)' : 'scale(0.97)';
       item.style.transition = 'all .4s';
